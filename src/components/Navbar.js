@@ -79,40 +79,54 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="glass-card bg-blue-900/80 backdrop-blur border border-white/20 mt-2 px-4 py-4 space-y-2 reef-shadow">
-              <Link
-                to="/"
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
-                  isActive('/') ? 'underline underline-offset-8 decoration-teal-400' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/product"
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
-                  isActive('/product') ? 'underline underline-offset-8 decoration-teal-400' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Product
-              </Link>
-              <Link
-                to="/contact"
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
-                  isActive('/contact') ? 'underline underline-offset-8 decoration-teal-400' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
+          <div className="md:hidden fixed inset-0 z-50 flex flex-col bg-blue-900/70 backdrop-blur-lg">
+            <div className="rounded-2xl p-6 m-4 glass-card bg-blue-900/70 backdrop-blur-lg shadow-2xl">
+              <div className="flex items-center justify-between mb-6">
+                <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+                  <span className="text-2xl font-bold text-gradient-oceanic">AdtechAI</span>
+                </Link>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-white/90 hover:text-teal-400 transition-all duration-300 text-2xl focus:outline-none"
+                  aria-label="Close menu"
+                >
+                  &times;
+                </button>
+              </div>
+              <nav className="flex flex-col space-y-2 mb-4">
+                <Link
+                  to="/"
+                  className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
+                    isActive('/') ? 'underline underline-offset-8 decoration-teal-400' : ''
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/product"
+                  className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
+                    isActive('/product') ? 'underline underline-offset-8 decoration-teal-400' : ''
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Product
+                </Link>
+                <Link
+                  to="/contact"
+                  className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 text-white/90 hover:text-teal-400 ${
+                    isActive('/contact') ? 'underline underline-offset-8 decoration-teal-400' : ''
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+              </nav>
               <a
                 href="https://app.adtechai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-accent w-full block text-center mt-2"
+                className="btn-accent w-full text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Login
