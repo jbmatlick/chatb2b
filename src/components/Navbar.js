@@ -80,10 +80,10 @@ const Navbar = () => {
       {/* Mobile Navigation Overlay - now sibling to <nav> */}
       {isMenuOpen &&
         <div className="md:hidden fixed inset-0 z-[9999] w-full h-full bg-white/10 backdrop-blur-xl flex items-center justify-center overflow-y-auto">
-          <div className="glass-card bg-white/20 backdrop-blur-xl max-w-xs w-full mx-auto my-16 p-6 rounded-2xl shadow-2xl border border-white/20">
+          <div className="glass-card bg-white/20 backdrop-blur-xl max-w-xs w-full mx-auto my-16 p-6 shadow-2xl border border-white/20 rounded-none md:rounded-2xl">
             <div className="flex items-center justify-between mb-8">
               <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
-                <span className="text-2xl font-bold text-ocean-600">AdtechAI</span>
+                <span className="text-2xl font-bold text-white drop-shadow-md">AdtechAI</span>
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}
