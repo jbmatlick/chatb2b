@@ -5,6 +5,7 @@ import WaveDivider from '../components/WaveDivider';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
+    company: '',
     email: '',
     message: ''
   });
@@ -48,7 +49,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="glass-card p-10">
+        <div className="bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden p-10 fade-in">
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <label htmlFor="name" className="block text-base font-semibold text-white mb-3">
@@ -65,7 +66,21 @@ const Contact = () => {
                 placeholder="Your name"
               />
             </div>
-
+            <div>
+              <label htmlFor="company" className="block text-base font-semibold text-white mb-3">
+                Company *
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                required
+                className="input-modern w-full text-white placeholder-white/50"
+                placeholder="Your company"
+              />
+            </div>
             <div>
               <label htmlFor="email" className="block text-base font-semibold text-white mb-3">
                 Email *
@@ -111,7 +126,7 @@ const Contact = () => {
         {/* Wave divider above evolution section */}
         <WaveDivider className="mx-auto -mb-8 w-full max-w-2xl opacity-50" alt="Wave divider above evolution section" />
 
-        <div className="glass-card mt-12 p-8 text-center">
+        <div className="bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden mt-12 p-8 text-center fade-in">
           <h2 className="text-2xl font-semibold text-teal-300 mb-2">Your Voice Fuels Our Evolution</h2>
           <p className="text-base text-white/80 mb-0">
             From today's autonomy to tomorrow's expansions. Every insight helps us build a more intelligent, more responsive advertising ecosystem.
