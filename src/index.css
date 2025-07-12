@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  @apply antialiased text-gray-900;
+}
+
+.transition-fluid {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Oceanic wave effect */
+.wave-bg {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+  background-size: 400% 400%;
+  animation: wave-gradient 8s ease infinite;
+}
+
+@keyframes wave-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Custom oceanic classes */
+.wave-gradient {
+  background: linear-gradient(to bottom, rgba(0, 123, 255, 0.1), transparent);
+}
+
+.reef-shadow {
+  box-shadow: 0 4px 20px rgba(0, 100, 200, 0.2);
+}
+
+.oceanic-bg {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 25%, #0369a1 50%, #1e40af 75%, #3730a3 100%);
+  background-size: 400% 400%;
+  animation: oceanic-flow 12s ease infinite;
+}
+
+@keyframes oceanic-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Wave animations */
+.wave-float {
+  animation: wave-float 6s ease-in-out infinite;
+}
+
+@keyframes wave-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.wave-ripple {
+  animation: wave-ripple 4s ease-in-out infinite;
+}
+
+@keyframes wave-ripple {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Text gradient for watery effect */
+.text-gradient-oceanic {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reef pattern overlay */
+.reef-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 123, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+  background-size: 100px 100px;
+}
+
+/* Parallax effect */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0284c7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0369a1;
+}
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 50%);
+}
+
+/* Focus states for form elements */
+.focus-oceanic:focus {
+  @apply ring-2 ring-blue-300 ring-offset-2;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+} 
