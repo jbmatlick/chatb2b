@@ -9,12 +9,17 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen oceanic-bg relative">
-        {/* Subtle wave pattern overlay */}
-        <div className="absolute inset-0 reef-pattern opacity-30 pointer-events-none"></div>
-        
+      <div className="min-h-screen relative overflow-x-hidden" style={{ fontFamily: 'Poppins, sans-serif' }}>
+        {/* Oceanic gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-teal-800 -z-10"></div>
+        {/* Subtle ocean overlay */}
+        <div className="pointer-events-none absolute inset-0" style={{ zIndex: 0 }}>
+          <div className="w-full h-full bg-gradient-to-b from-transparent to-teal-900/40" />
+        </div>
+        {/* Reef pattern overlay */}
+        <div className="absolute inset-0 reef-pattern opacity-30 pointer-events-none -z-10"></div>
         <Navbar />
-        <main className="flex-1 relative z-10">
+        <main className="flex-1 relative z-10 fade-in">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />

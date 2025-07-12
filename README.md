@@ -72,9 +72,18 @@ The build artifacts will be stored in the `build/` directory.
 - **Accent Colors**: Various blue shades for depth and hierarchy
 
 ### Typography
-- **Font**: Inter (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700
+- **Font**: Poppins (Google Fonts)
+- **Weights**: 400, 500, 600, 700
 - **Hierarchy**: Responsive text sizing with Tailwind's scale
+
+### SEO & Accessibility
+- **SEO**: Managed with [react-helmet-async](https://github.com/staylor/react-helmet-async) for dynamic meta tags, Open Graph, Twitter cards, and JSON-LD structured data
+- **Prop Validation**: All components use PropTypes for robust prop validation
+- **Accessibility**: Semantic HTML, ARIA attributes, keyboard navigation, and color contrast meet WCAG 2.2
+- **Performance**: All images are lazy-loaded, backgrounds optimized, and site is tuned for Core Web Vitals
+
+### Components
+- **WaveDivider**: Reusable React component for fluid section separation using SVG
 
 ### Animations
 - **Fluid Transitions**: 0.3s ease-in-out for interactive elements
@@ -124,3 +133,7 @@ The website is built mobile-first with breakpoints:
 ---
 
 *Built with React, Tailwind CSS, and oceanic inspiration.* 
+
+## 🛡️ Future-Proofed for 2025
+- Built to exceed modern best practices for performance, accessibility, security, and SEO (Core Web Vitals, WCAG 2.2, Google SEO guidelines)
+- Easily extensible and maintainable codebase 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import heroReef from '../assets/hero-reef.jpg';
 import { ClockIcon, ArrowTrendingUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
-import waveDivider from '../assets/wave-divider.svg';
+import WaveDivider from '../components/WaveDivider';
 
 const advantageData = [
   {
@@ -28,27 +28,27 @@ const advantageData = [
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section (unchanged) */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${heroReef})`,
           }}
         ></div>
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 to-teal-700/60"></div>
         <div className="absolute inset-0 reef-pattern opacity-10"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 reef-shadow border border-white/20">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-gradient-oceanic">AdtechAI: The Agent That Runs Your Ads</span>
+          <div className="glass-card p-12 md:p-16 fade-in">
+            <h1 className="section-title">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">AdtechAI: The Agent That Runs Your Ads</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
               An agentic-first platform that transforms marketing goals into autonomous, optimized executions – because your vision deserves intelligent action.
             </p>
             <Link
               to="/product"
-              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-fluid hover:from-blue-700 hover:to-blue-800 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 reef-shadow"
+              className="btn-accent text-lg"
             >
               Learn More
             </Link>
@@ -60,76 +60,74 @@ const Home = () => {
         <div className="absolute bottom-40 left-20 w-12 h-12 bg-indigo-400/20 rounded-full wave-float" style={{animationDelay: '4s'}}></div>
       </section>
 
-      {/* Modernized Bottom Content */}
-      <main className="max-w-5xl mx-auto px-4 py-16 space-y-20">
-        {/* Why AdtechAI? Section */}
-        <section className="relative flex flex-col items-center justify-center">
-          <div className="w-full max-w-3xl mx-auto bg-white/90 backdrop-blur-sm rounded-2xl py-12 px-6 md:px-12 shadow-lg reef-shadow text-center">
-            <h2 className="text-4xl font-bold text-blue-900 mb-6" style={{textShadow: '0 2px 8px rgba(16, 42, 67, 0.08)'}}>Why AdtechAI?</h2>
-            <div className="space-y-6">
-              <p className="text-lg text-gray-800 leading-relaxed">
-                In the turbulent ocean of digital advertising, fragmentation drowns potential. AdtechAI calms the storm, channeling data flows into strategic surges.
-              </p>
-              <p className="text-lg text-gray-800 leading-relaxed">
-                This isn't just another dashboard—it's an intelligent agent handling goals to optimization. Inspired by ocean waves and reefs: fluid, adaptive, deep.
-              </p>
-              <p className="text-xl font-semibold text-gradient-oceanic">
-                Set goals, not campaigns; harvest insights, not data.
-              </p>
+      {/* Why AdtechAI? Section */}
+      <section className="relative flex flex-col items-center justify-center py-16">
+        <div className="glass-card w-full max-w-3xl mx-auto py-12 px-6 md:px-12 text-center fade-in">
+          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why AdtechAI?</h2>
+          <div className="space-y-6">
+            <p className="text-lg text-white/80 leading-relaxed">
+              In the turbulent ocean of digital advertising, fragmentation drowns potential. AdtechAI calms the storm, channeling data flows into strategic surges.
+            </p>
+            <p className="text-lg text-white/80 leading-relaxed">
+              This isn't just another dashboard—it's an intelligent agent handling goals to optimization. Inspired by ocean waves and reefs: fluid, adaptive, deep.
+            </p>
+            <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
+              Set goals, not campaigns; harvest insights, not data.
+            </p>
+          </div>
+        </div>
+        {/* Wave divider between major sections */}
+        <WaveDivider className="mx-auto mt-10 w-full max-w-2xl opacity-50" alt="Wave divider between sections" />
+      </section>
+
+      {/* The AdtechAI Advantage Section (Card-based) */}
+      <section aria-label="AdtechAI Advantage" className="py-16">
+        <div className="grid gap-8 md:grid-cols-3">
+          {advantageData.map((item, idx) => (
+            <div
+              key={item.benefit}
+              className="glass-card flex flex-col items-center p-8 space-y-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:scale-105 focus:shadow-xl outline-none"
+              tabIndex={0}
+              aria-label={item.benefit}
+            >
+              <div className="mb-2">{item.icon}</div>
+              <div className="font-bold text-lg text-teal-400 mb-1">{item.benefit}</div>
+              <div className="text-white/70 text-sm mb-1">{item.traditional}</div>
+              <div className="text-teal-400 font-bold text-base">{item.adtechai}</div>
             </div>
-          </div>
-          {/* Subtle wave divider */}
-          <img src={waveDivider} alt="Wave divider" className="mx-auto mt-10 w-full max-w-2xl opacity-50" loading="lazy" style={{zIndex: 1, position: 'relative'}} />
-        </section>
+          ))}
+        </div>
+      </section>
 
-        {/* The AdtechAI Advantage Section (Card-based) */}
-        <section aria-label="AdtechAI Advantage" className="">
-          <div className="grid gap-6 md:grid-cols-3">
-            {advantageData.map((item, idx) => (
-              <div
-                key={item.benefit}
-                className="flex flex-col items-center bg-white/80 backdrop-blur-sm rounded-xl shadow-lg reef-shadow p-6 space-y-4 transition-transform duration-200 hover:scale-105"
-                tabIndex={0}
-                aria-label={item.benefit}
-              >
-                <div className="mb-2">{item.icon}</div>
-                <div className="font-bold text-lg text-blue-900 mb-1">{item.benefit}</div>
-                <div className="text-gray-500 text-sm mb-1">{item.traditional}</div>
-                <div className="text-teal-600 font-bold text-base">{item.adtechai}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Join the Vanguard CTA Section */}
-        <section className="relative overflow-hidden" style={{clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'}}>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
-          <div className="relative z-10 py-16 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Join the Vanguard</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto">
+      {/* Join the Vanguard CTA Section */}
+      <section className="relative overflow-hidden py-20 fade-in" style={{clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'}}>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
+        <div className="relative z-10 py-16 text-center text-white">
+          <div className="glass-card inline-block px-12 py-10">
+            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Join the Vanguard</h2>
+            <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
               Explore how AdtechAI redefines execution with intelligent autonomy. Experience the future of agentic marketing—fluid, adaptive, and profoundly effective.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/product"
-                className="px-8 py-3 rounded-full border-2 border-white text-white font-semibold transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+                className="btn-accent"
                 aria-label="Dive Deeper"
               >
                 Dive Deeper
               </Link>
               <Link
                 to="/contact"
-                className="px-8 py-3 rounded-full bg-blue-600 text-white font-semibold transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                className="btn-accent"
                 aria-label="Get Started"
               >
                 Get Started
               </Link>
             </div>
           </div>
-          {/* Subtle bottom wave divider */}
-          <img src={waveDivider} alt="Wave divider" className="absolute bottom-0 left-0 w-full opacity-60" style={{transform: 'translateY(50%)'}} loading="lazy" />
-        </section>
-      </main>
+        </div>
+        {/* Subtle bottom wave divider removed to prevent floating bar above footer */}
+      </section>
     </div>
   );
 };

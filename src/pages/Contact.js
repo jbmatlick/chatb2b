@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import coralBg from '../assets/contact-coral.jpg';
+import WaveDivider from '../components/WaveDivider';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,19 +39,19 @@ const Contact = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-blue-900/70" aria-hidden="true"></div>
-      <main className="relative max-w-xl mx-auto px-4 py-16 space-y-12 z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-800/70 to-blue-900/80" aria-hidden="true"></div>
+      <main className="relative max-w-lg mx-auto px-4 py-20 space-y-16 z-10 fade-in">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">Contact Us</h1>
-          <p className="text-lg text-white/90 max-w-md mx-auto mb-10">
+          <h1 className="section-title">Contact Us</h1>
+          <p className="text-lg text-white/80 max-w-md mx-auto mb-10">
             Connect with our visionaries. Share insights; co-shape the future of agentic marketing.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl reef-shadow p-10 space-y-8">
+        <div className="glass-card p-10">
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
+              <label htmlFor="name" className="block text-base font-semibold text-white mb-3">
                 Name *
               </label>
               <input
@@ -60,13 +61,13 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus-oceanic transition-fluid bg-white text-gray-900"
+                className="input-modern w-full text-white placeholder-white/50"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
+              <label htmlFor="email" className="block text-base font-semibold text-white mb-3">
                 Email *
               </label>
               <input
@@ -76,13 +77,13 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus-oceanic transition-fluid bg-white text-gray-900"
+                className="input-modern w-full text-white placeholder-white/50"
                 placeholder="your.email@company.com"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-2">
+              <label htmlFor="message" className="block text-base font-semibold text-white mb-3">
                 Message *
               </label>
               <textarea
@@ -92,7 +93,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus-oceanic transition-fluid resize-none bg-white text-gray-900"
+                className="input-modern w-full text-white placeholder-white/50 resize-none"
                 placeholder="Tell us about your marketing challenges and how AdtechAI can help..."
               />
             </div>
@@ -100,30 +101,33 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-fluid hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed reef-shadow shadow-lg"
+              className="btn-accent w-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl reef-shadow p-10 space-y-6 text-center mt-8">
-          <h2 className="text-xl font-bold text-blue-900 mb-2">Your Voice Fuels Our Evolution</h2>
-          <p className="text-gray-700 mb-6">
+        {/* Wave divider above evolution section */}
+        <WaveDivider className="mx-auto -mb-8 w-full max-w-2xl opacity-50" alt="Wave divider above evolution section" />
+
+        <div className="glass-card mt-12 p-8 text-center">
+          <h2 className="text-2xl font-semibold text-teal-300 mb-2">Your Voice Fuels Our Evolution</h2>
+          <p className="text-base text-white/80 mb-0">
             From today's autonomy to tomorrow's expansions. Every insight helps us build a more intelligent, more responsive advertising ecosystem.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
               href="https://app.adtechai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium transition-fluid hover:bg-blue-600 hover:text-white reef-shadow text-center"
+              className="btn-accent flex-1 text-center"
             >
               Try AdtechAI
             </a>
             <a
               href="mailto:hello@adtechai.com"
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium transition-fluid hover:bg-gray-50 text-center"
+              className="btn-accent flex-1 text-center"
             >
               Email Us
             </a>
