@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 glass-card bg-blue-900/30 backdrop-blur border-b border-white/20 shadow-lg">
+      <nav className="sticky top-0 z-50 glass-card bg-blue-900/30 backdrop-blur border-b border-white/20 shadow-lg rounded-none">
         {/* Wave divider at bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 opacity-70"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
