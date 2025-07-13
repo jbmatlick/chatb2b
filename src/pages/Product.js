@@ -33,7 +33,7 @@ const Product = () => {
         <h2 className="text-3xl font-semibold text-teal-300 mb-10 text-center">The Agentic Workflow</h2>
         <ol className="space-y-10">
           {workflow.map((item, idx) => (
-            <li key={item.step} className="glass-card p-10 flex flex-col md:flex-row items-start gap-8 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+            <li key={item.step} className="glass-card reef-shadow p-10 flex flex-col md:flex-row items-start gap-8 transition-transform duration-300 hover:scale-105 reef-shadow-hover">
               <div className={`flex-shrink-0 w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-md border-4 border-white/30`}>{idx + 1}</div>
               <div>
                 <div className="font-bold text-xl text-teal-400 mb-2">{item.step}</div>
