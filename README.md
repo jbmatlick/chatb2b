@@ -137,3 +137,9 @@ The website is built mobile-first with breakpoints:
 ## 🛡️ Future-Proofed for 2025
 - Built to exceed modern best practices for performance, accessibility, security, and SEO (Core Web Vitals, WCAG 2.2, Google SEO guidelines)
 - Easily extensible and maintainable codebase 
+
+### Utilities
+- **ScrollToTop**: Ensures the page scrolls to the top on every route change for a seamless user experience.
+
+### Code Readability
+- All main files and components are clearly commented and structured for easy onboarding and maintenance by future developers. 

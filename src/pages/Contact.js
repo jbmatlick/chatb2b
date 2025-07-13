@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import coralBg from '../assets/contact-coral.jpg';
-import WaveDivider from '../components/WaveDivider';
 
+// Contact page for AdtechAI marketing site
+// Features: Glassmorphic form, feedback section, oceanic background
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,7 +46,7 @@ const Contact = () => {
         <div className="text-center">
           <h1 className="section-title">Contact Us</h1>
           <p className="text-lg text-white/80 max-w-md mx-auto mb-10">
-            Connect with our visionaries. Share insights; co-shape the future of agentic marketing.
+            Got questions? Ready to transform your marketing? Let's talk. Share your challenges; we'll show you how AdtechAI can help.
           </p>
         </div>
 
@@ -124,12 +125,10 @@ const Contact = () => {
         </div>
 
         {/* Wave divider above evolution section */}
-        <WaveDivider className="mx-auto -mb-8 w-full max-w-2xl opacity-50" alt="Wave divider above evolution section" />
-
         <div className="bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden mt-12 p-8 text-center fade-in">
-          <h2 className="text-2xl font-semibold text-teal-300 mb-2">Your Voice Fuels Our Evolution</h2>
+          <h2 className="text-2xl font-semibold text-teal-300 mb-2">Your Feedback Drives Our Growth</h2>
           <p className="text-base text-white/80 mb-0">
-            From today's autonomy to tomorrow's expansions. Every insight helps us build a more intelligent, more responsive advertising ecosystem.
+            Every insight helps us build better. From today's autonomy to tomorrow's innovations—your voice shapes the future of agentic marketing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a

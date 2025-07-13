@@ -1,5 +1,4 @@
 import React from 'react';
-import WaveDivider from '../components/WaveDivider';
 
 const workflow = [
   {
@@ -25,7 +24,7 @@ const Product = () => {
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="section-title">How AdtechAI Works</h1>
-        <p className="text-lg text-white/90 mb-4">From intent to impact – AdtechAI handles the 'how' so you focus on the 'why'.</p>
+        <p className="text-lg text-white/90 mb-4">Stop worrying about the 'how'. AdtechAI handles execution so you focus on strategy.</p>
       </section>
 
       {/* Agentic Workflow Section */}
@@ -42,7 +41,6 @@ const Product = () => {
             </li>
           ))}
         </ol>
-        {/* Wave divider removed to prevent floating effect */}
       </section>
 
       {/* Real-World Examples Section */}
@@ -68,7 +66,6 @@ const Product = () => {
             <div className="text-sm text-teal-300 font-semibold">Result: 2.3x ROAS improvement in 30 days</div>
           </div>
         </div>
-        {/* Wave divider removed to prevent floating effect */}
       </section>
 
       {/* Value Propositions */}
@@ -100,7 +97,7 @@ const Product = () => {
           <div className="glass-card inline-block px-12 py-10">
             <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Experience Agentic Advertising?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Not a tool to wield; an agent to command – where complexity is curated, not confronted.
+              Stop wrestling with tools. Start commanding an agent. Complexity curated, not confronted.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
@@ -120,8 +117,6 @@ const Product = () => {
             </div>
           </div>
         </div>
-        {/* Subtle bottom wave divider */}
-        <WaveDivider className="absolute bottom-0 left-0 w-full opacity-60" style={{transform: 'translateY(50%)'}} alt="Wave divider at bottom of section" />
       </section>
     </main>
   );

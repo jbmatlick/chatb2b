@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import heroReef from '../assets/hero-reef.jpg';
 import { ClockIcon, ArrowTrendingUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
-import WaveDivider from '../components/WaveDivider';
 
 const advantageData = [
   {
@@ -44,7 +43,7 @@ const Home = () => {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">AdtechAI: The Agent That Runs Your Ads</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              An agentic-first platform that transforms marketing goals into autonomous, optimized executions – because your vision deserves intelligent action.
+              Stop managing campaigns. Start commanding results. AdtechAI transforms your goals into autonomous, optimized executions – because your vision deserves intelligent action.
             </p>
             <Link
               to="/product"
@@ -66,18 +65,17 @@ const Home = () => {
           <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why AdtechAI?</h2>
           <div className="space-y-6">
             <p className="text-lg text-white/80 leading-relaxed">
-              In the turbulent ocean of digital advertising, fragmentation drowns potential. AdtechAI calms the storm, channeling data flows into strategic surges.
+              Tired of drowning in dashboards? AdtechAI calms the storm. We channel your data into strategic surges that actually work.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              This isn't just another dashboard—it's an intelligent agent handling goals to optimization. Inspired by ocean waves and reefs: fluid, adaptive, deep.
+              This isn't another dashboard—it's your intelligent agent. Set goals, not campaigns. Harvest insights, not data.
             </p>
             <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
-              Set goals, not campaigns; harvest insights, not data.
+              Your vision. Our execution. Pure results.
             </p>
           </div>
         </div>
         {/* Wave divider between major sections */}
-        <WaveDivider className="mx-auto mt-10 w-full max-w-2xl opacity-50" alt="Wave divider between sections" />
       </section>
 
       {/* The AdtechAI Advantage Section (Card-based) */}
@@ -99,6 +97,31 @@ const Home = () => {
         </div>
       </section>
 
+      {/* --- Testimonials Section (added July 2025, per enhanced prompt) --- */}
+      <section className="py-16 fade-in">
+        <h2 className="section-title mb-4">What Our Users Say</h2>
+        <p className="text-white/80 text-lg text-center mb-10 max-w-2xl mx-auto">Hear from marketers just like you who've transformed their workflows with AdtechAI.</p>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-card flex flex-col items-center p-8 fade-in">
+              <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0ea5e9&color=fff" alt="Avatar of Sarah Chen" className="w-16 h-16 rounded-full mb-4" />
+              <blockquote className="italic text-white/90 mb-4">“AdtechAI delivered a 3x ROI boost in our first quarter by autonomously optimizing campaigns across channels. No more manual tweaks—just results.”</blockquote>
+              <div className="font-bold text-teal-300">Sarah Chen<br /><span className="font-normal text-white/70">CMO, TechForge Solutions</span></div>
+            </div>
+            <div className="glass-card flex flex-col items-center p-8 fade-in">
+              <img src="https://ui-avatars.com/api/?name=Mike+Rodriguez&background=0ea5e9&color=fff" alt="Avatar of Mike Rodriguez" className="w-16 h-16 rounded-full mb-4" />
+              <blockquote className="italic text-white/90 mb-4">“The simplicity of execution is game-changing; we set goals, and the agent handles media deployment flawlessly, freeing our team for strategy.”</blockquote>
+              <div className="font-bold text-teal-300">Mike Rodriguez<br /><span className="font-normal text-white/70">Head of Growth, InnovateBrands</span></div>
+            </div>
+            <div className="glass-card flex flex-col items-center p-8 fade-in">
+              <img src="https://ui-avatars.com/api/?name=Elena+Vasquez&background=0ea5e9&color=fff" alt="Avatar of Elena Vasquez" className="w-16 h-16 rounded-full mb-4" />
+              <blockquote className="italic text-white/90 mb-4">“Bringing our own data into AdtechAI revolutionized our marketing landscape—hyper-personalized targeting that feels like magic, with insights we never had before.”</blockquote>
+              <div className="font-bold text-teal-300">Elena Vasquez<br /><span className="font-normal text-white/70">Director of Analytics, GlobalReach Inc.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Join the Vanguard CTA Section */}
       <section className="relative overflow-hidden py-20 fade-in" style={{clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'}}>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
@@ -106,7 +129,7 @@ const Home = () => {
           <div className="glass-card inline-block px-12 py-10">
             <h2 className="text-3xl font-semibold text-teal-300 mb-4">Join the Vanguard</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Explore how AdtechAI redefines execution with intelligent autonomy. Experience the future of agentic marketing—fluid, adaptive, and profoundly effective.
+              Tired of drowning in ad chaos? What if you could just set your goals and let an intelligent agent handle the rest—turning them into optimized, autonomous results? Dive into the future of agentic marketing with AdtechAI. It's fluid, adaptive, and built for real impact.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

@@ -5,10 +5,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Contact from './pages/Contact';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+      {/* Main app shell with router, global backgrounds, and layout */}
       <div className="min-h-screen relative overflow-x-hidden" style={{ fontFamily: 'Poppins, sans-serif' }}>
         {/* Oceanic gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-teal-800 -z-10"></div>
