@@ -7,19 +7,24 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^17.2.0",
+    "express": "^4.21.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "sib-api-v3-sdk": "^8.5.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node server.js",
+    "dev": "npm run build && npm run server"
   },
   "eslintConfig": {
     "extends": [
@@ -39,10 +44,19 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.1",
     "autoprefixer": "^10.4.14",
+    "babel-loader": "^10.0.0",
+    "html-webpack-plugin": "^5.6.3",
     "postcss": "^8.4.21",
     "source-map-explorer": "^2.5.3",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "vercel": "^44.4.1",
+    "webpack": "^5.100.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }

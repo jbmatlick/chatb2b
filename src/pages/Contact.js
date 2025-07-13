@@ -12,6 +12,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -20,15 +21,37 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // Handle form submission: POST to /api/send-email
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      alert('Thank you for your message! We\'ll get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      console.log('Submitting formData:', formData);
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      console.log('API response status:', res.status);
+      let data;
+      try {
+        data = await res.json();
+        console.log('API response body:', data);
+      } catch (jsonErr) {
+        console.log('Failed to parse JSON response:', jsonErr);
+      }
+      if (res.ok && data && data.success) {
+        alert("Thanks! We've got your message and emailed you a confirmation.");
+        setFormData({ name: '', company: '', email: '', message: '' });
+      } else {
+        alert('Oops, something went wrong—try again.');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('Oops, something went wrong—try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -65,6 +88,7 @@ const Contact = () => {
                 required
                 className="input-modern w-full text-white placeholder-white/50"
                 placeholder="Your name"
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -80,6 +104,7 @@ const Contact = () => {
                 required
                 className="input-modern w-full text-white placeholder-white/50"
                 placeholder="Your company"
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -95,6 +120,7 @@ const Contact = () => {
                 required
                 className="input-modern w-full text-white placeholder-white/50"
                 placeholder="your.email@company.com"
+                disabled={isSubmitting}
               />
             </div>
 
@@ -111,6 +137,7 @@ const Contact = () => {
                 rows={4}
                 className="input-modern w-full text-white placeholder-white/50 resize-none"
                 placeholder="Tell us about your marketing challenges and how AdtechAI can help..."
+                disabled={isSubmitting}
               />
             </div>
 
