@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Product from './pages/Product';
 import Contact from './pages/Contact';
 import ScrollToTop from './ScrollToTop';
+import Privacy from './pages/Privacy';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />

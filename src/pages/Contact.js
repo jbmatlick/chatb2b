@@ -11,6 +11,8 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -25,6 +27,8 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setShowSuccess(false);
+    setShowError(false);
     try {
       console.log('Submitting formData:', formData);
       const res = await fetch('/api/send-email', {
@@ -41,14 +45,17 @@ const Contact = () => {
         console.log('Failed to parse JSON response:', jsonErr);
       }
       if (res.ok && data && data.success) {
-        alert("Thanks! We've got your message and emailed you a confirmation.");
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 5000);
         setFormData({ name: '', company: '', email: '', message: '' });
       } else {
-        alert('Oops, something went wrong—try again.');
+        setShowError(true);
+        setTimeout(() => setShowError(false), 5000);
       }
     } catch (err) {
       console.error('Form submission error:', err);
-      alert('Oops, something went wrong—try again.');
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -72,6 +79,19 @@ const Contact = () => {
             Got questions? Ready to transform your marketing? Let's talk. Share your challenges; we'll show you how AdtechAI can help.
           </p>
         </div>
+
+        {/* Inline Success/Error Banner */}
+        {(showSuccess || showError) && (
+          <div
+            className={`transition-opacity duration-500 mb-6 rounded-lg px-4 py-3 text-white font-semibold shadow-lg ${showSuccess ? 'bg-green-500' : 'bg-red-500'}`}
+            role="status"
+            aria-live="polite"
+          >
+            {showSuccess
+              ? "Thanks! Your message is sent—we've emailed you a confirmation."
+              : "Oops, something went wrong—try again."}
+          </div>
+        )}
 
         <div className="bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden p-10 fade-in">
           <form onSubmit={handleSubmit} className="space-y-8">
