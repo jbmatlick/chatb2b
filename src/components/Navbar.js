@@ -18,7 +18,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-gradient-oceanic transition-fluid hover:scale-105 wave-float">
-                AdtechAI
+                Contact Tsunami
               </span>
             </Link>
             {/* Desktop Navigation */}
@@ -51,7 +51,7 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <a
-                href="https://app.adtechai.com"
+                href="https://app.contact-tsunami.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent ml-2"
@@ -84,7 +84,7 @@ const Navbar = () => {
           <div className="glass-card bg-white/20 backdrop-blur-xl max-w-xs w-full mx-auto my-16 p-6 shadow-2xl border border-white/20 rounded-none md:rounded-2xl">
             <div className="flex items-center justify-between mb-8">
               <Link to="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
-                <span className="text-2xl font-bold text-white drop-shadow-md">AdtechAI</span>
+                <span className="text-2xl font-bold text-white drop-shadow-md">Contact Tsunami</span>
               </Link>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -125,7 +125,7 @@ const Navbar = () => {
               </Link>
             </nav>
             <a
-              href="https://app.adtechai.com"
+                              href="https://app.contact-tsunami.com"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-accent w-full text-center"

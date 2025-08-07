@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import coralBg from '../assets/contact-coral.jpg';
 
-// Contact page for AdtechAI marketing site
+// Contact page for Contact Tsunami marketing site
 // Features: Glassmorphic form, feedback section, oceanic background
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -76,7 +76,7 @@ const Contact = () => {
         <div className="text-center">
           <h1 className="section-title">Contact Us</h1>
           <p className="text-lg text-white/80 max-w-md mx-auto mb-10">
-            Got questions? Ready to transform your marketing? Let's talk. Share your challenges; we'll show you how AdtechAI can help.
+            Got questions? Ready to transform your marketing? Let's talk. Share your challenges; we'll show you how Contact Tsunami can help.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ const Contact = () => {
                 required
                 rows={4}
                 className="input-modern w-full text-white placeholder-white/50 resize-none"
-                placeholder="Tell us about your marketing challenges and how AdtechAI can help..."
+                placeholder="Tell us about your marketing challenges and how Contact Tsunami can help..."
                 disabled={isSubmitting}
               />
             </div>
@@ -179,15 +179,15 @@ const Contact = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://app.adtechai.com"
+              href="https://app.contact-tsunami.com"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-accent flex-1 text-center"
             >
-              Try AdtechAI
+                              Try Contact Tsunami
             </a>
             <a
-              href="mailto:hello@adtechai.com"
+              href="mailto:hello@contact-tsunami.com"
               className="btn-accent flex-1 text-center"
             >
               Email Us

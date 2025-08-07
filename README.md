@@ -1,16 +1,16 @@
-# AdtechAI Marketing Website
+# Contact Tsunami Marketing Website
 
-A modern, agentic-first marketing website for AdtechAI - the autonomous advertising platform that runs your ads for you.
+A modern, agentic-first marketing website for Contact Tsunami - the autonomous advertising platform that runs your ads for you.
 
 ## 🌊 Vision
 
-AdtechAI isn't just another dashboard—it's an intelligent agent that transforms marketing goals into autonomous, optimized executions. This website embodies the platform's ethos of intelligent autonomy and fluid execution, drawing inspiration from oceanic reefs to symbolize depth, adaptability, and organic flow.
+Contact Tsunami isn't just another dashboard—it's an intelligent agent that transforms marketing goals into autonomous, optimized executions. This website embodies the platform's ethos of intelligent autonomy and fluid execution, drawing inspiration from oceanic reefs to symbolize depth, adaptability, and organic flow.
 
 ## ✨ Features
 
 - **Oceanic Design**: Fluid gradients, wave animations, and reef-inspired aesthetics
 - **Mobile-First**: Fully responsive design optimized for all devices
-- **Agentic Messaging**: Sophisticated content that positions AdtechAI as an intelligent agent, not just a tool
+- **Agentic Messaging**: Sophisticated content that positions Contact Tsunami as an intelligent agent, not just a tool
 - **Modern Tech Stack**: React 18+, Tailwind CSS, React Router
 - **Performance Optimized**: Lightweight animations, semantic HTML, accessibility compliant
 - **SEO Ready**: Meta tags, structured content, optimized for search engines
@@ -23,7 +23,7 @@ AdtechAI isn't just another dashboard—it's an intelligent agent that transform
 - **Contact (`/contact`)**: Minimalist contact form with oceanic aesthetics
 
 ### Components
-- **Navbar**: Sticky navigation with Login button to app.adtechai.com
+- **Navbar**: Sticky navigation with Login button to app.contact-tsunami.com
 - **Footer**: Simple copyright footer
 - **Hero Sections**: Oceanic backgrounds with sophisticated messaging
 - **Value Tables**: Responsive comparison tables
@@ -40,7 +40,7 @@ AdtechAI isn't just another dashboard—it's an intelligent agent that transform
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd adtechai-marketing
+   cd contact-tsunami-marketing
    ```
 
 2. **Install dependencies**
@@ -116,19 +116,19 @@ The website is built mobile-first with breakpoints:
 
 ## 🎯 Key Messaging Pillars
 
-1. **Autonomy as Liberation**: "From intent to impact – AdtechAI handles the 'how' so you focus on the 'why'"
+1. **Autonomy as Liberation**: "From intent to impact – Contact Tsunami handles the 'how' so you focus on the 'why'"
 2. **Intelligence as Depth**: "Beneath the waves of data lies untapped intelligence"
 3. **Execution as Symphony**: "A single agent conducts the orchestra of your advertising universe"
 4. **Invisibility as Elegance**: "The best technology fades into the background, leaving only results"
 
 ## 🔗 External Links
 
-- **App Login**: `https://app.adtechai.com`
-- **Contact Email**: `hello@adtechai.com`
+- **App Login**: `https://app.contact-tsunami.com`
+- **Contact Email**: `hello@contact-tsunami.com`
 
 ## 📄 License
 
-© 2025 AdtechAI. All rights reserved.
+© 2025 Contact Tsunami. All rights reserved.
 
 ---
 

@@ -18,8 +18,8 @@ async function testEmail() {
     const result = await tranEmailApi.sendTransacEmail({
       sender: { email: 'test@example.com', name: 'Test User' },
       to: [{ email: process.env.OWNER_EMAIL, name: 'Test Recipient' }],
-      subject: 'Test Email from AdtechAI',
-      htmlContent: '<h1>Test Email</h1><p>This is a test email from the AdtechAI contact form.</p>',
+      subject: 'Test Email from Contact Tsunami',
+      htmlContent: '<h1>Test Email</h1><p>This is a test email from the Contact Tsunami contact form.</p>',
     });
     
     console.log('Email sent successfully!');

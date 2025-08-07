@@ -4,7 +4,7 @@ const workflow = [
   {
     step: 'Goal',
     color: 'bg-blue-600',
-    desc: 'Articulate intent naturally; AdtechAI interprets via NLP parsers, aligning with semantic web ontologies. Example: "Allocate $5,000 to secure demo requests from cybersecurity decision-makers."',
+            desc: 'Articulate intent naturally; Contact Tsunami interprets via NLP parsers, aligning with semantic web ontologies. Example: "Allocate $5,000 to secure demo requests from cybersecurity decision-makers."',
   },
   {
     step: 'Plan',
@@ -23,8 +23,8 @@ const Product = () => {
     <main className="max-w-5xl mx-auto px-4 py-20 space-y-24 fade-in">
       {/* Hero Section */}
       <section className="text-center mb-16">
-        <h1 className="section-title">How AdtechAI Works</h1>
-        <p className="text-lg text-white/90 mb-4">Stop worrying about the 'how'. AdtechAI handles execution so you focus on strategy.</p>
+        <h1 className="section-title">How Contact Tsunami Works</h1>
+        <p className="text-lg text-white/90 mb-4">Stop worrying about the 'how'. Contact Tsunami handles execution so you focus on strategy.</p>
       </section>
 
       {/* Agentic Workflow Section */}
@@ -101,14 +101,14 @@ const Product = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://app.adtechai.com"
+                href="https://app.contact-tsunami.com"
                 className="btn-accent"
-                aria-label="Try AdtechAI"
+                                  aria-label="Try Contact Tsunami"
               >
-                Try AdtechAI
+                Try Contact Tsunami
               </a>
               <a
-                href="mailto:hello@adtechai.com"
+                href="mailto:hello@contact-tsunami.com"
                 className="btn-accent"
                 aria-label="Email Us"
               >

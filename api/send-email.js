@@ -16,10 +16,10 @@ const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 // --- EMAIL TEMPLATES ---
 // Logo and site URL for branding in emails
-const logoUrl = 'https://yourdomain.com/assets/adtechai-logo.png'; // Update to your actual logo URL
+const logoUrl = 'https://yourdomain.com/assets/contact-tsunami-logo.png'; // Update to your actual logo URL
 const siteUrl = 'https://yourdomain.com'; // Update to your actual site URL
-const linkedInUrl = 'https://linkedin.com/company/adtechai';
-const twitterUrl = 'https://twitter.com/adtechai';
+const linkedInUrl = 'https://linkedin.com/company/contact-tsunami';
+const twitterUrl = 'https://twitter.com/contact-tsunami';
 
 // Inline SVG wave divider (base64, vibrant curved teal)
 const waveSvg =
@@ -136,15 +136,15 @@ function thankYouEmailHtml({ name }) {
   <body>
     <div class="container">
       <div class="header">
-        <img src="${logoUrl}" alt="AdtechAI Logo" class="logo" />
+        <img src="${logoUrl}" alt="Contact Tsunami Logo" class="logo" />
         <h1>Thanks for Reaching Out!</h1>
       </div>
       <div class="wave"></div>
       <div class="content-card">
         <p>Hi <b>${name}</b>,</p>
-        <p>We’ve received your message and our team will dive in soon to help with your marketing goals. AdtechAI is your digital reef—always working beneath the surface to bring you results.</p>
+        <p>We've received your message and our team will dive in soon to help with your marketing goals. Contact Tsunami is your digital reef—always working beneath the surface to bring you results.</p>
         <p>Questions? Just reply to this email or explore more below.</p>
-        <a href="${siteUrl}" class="cta">Explore AdtechAI</a>
+        <a href="${siteUrl}" class="cta">Explore Contact Tsunami</a>
       </div>
       <div class="footer">
         <div style="margin-bottom:12px;">
@@ -155,7 +155,7 @@ function thankYouEmailHtml({ name }) {
             <svg viewBox="0 0 24 24"><path d="M24 4.56c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.956-2.178-1.555-3.594-1.555-2.72 0-4.924 2.204-4.924 4.924 0 .386.044.762.127 1.124-4.092-.205-7.719-2.166-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.23-.616v.062c0 2.386 1.697 4.374 3.95 4.827-.413.112-.849.172-1.298.172-.318 0-.626-.03-.927-.086.627 1.956 2.444 3.379 4.6 3.419-1.684 1.32-3.808 2.107-6.115 2.107-.398 0-.79-.023-1.175-.069 2.179 1.397 4.768 2.213 7.548 2.213 9.057 0 14.012-7.506 14.012-14.012 0-.213-.005-.425-.014-.636.962-.695 1.797-1.562 2.457-2.549z"/></svg>
           </a>
         </div>
-        &copy; 2025 AdtechAI &nbsp;|&nbsp; <a href="mailto:hello@adtechai.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
+        &copy; 2025 Contact Tsunami &nbsp;|&nbsp; <a href="mailto:hello@contact-tsunami.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
         <a href="#" class="unsubscribe">Unsubscribe</a>
       </div>
     </div>
@@ -264,7 +264,7 @@ function ownerEmailHtml({ name, email, company, message }) {
   <body>
     <div class="container">
       <div class="header">
-        <img src="${logoUrl}" alt="AdtechAI Logo" class="logo" />
+        <img src="${logoUrl}" alt="Contact Tsunami Logo" class="logo" />
         <h1>New Submission Alert</h1>
       </div>
       <div class="wave"></div>
@@ -285,7 +285,7 @@ function ownerEmailHtml({ name, email, company, message }) {
             <svg viewBox="0 0 24 24"><path d="M24 4.56c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.956-2.178-1.555-3.594-1.555-2.72 0-4.924 2.204-4.924 4.924 0 .386.044.762.127 1.124-4.092-.205-7.719-2.166-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.23-.616v.062c0 2.386 1.697 4.374 3.95 4.827-.413.112-.849.172-1.298.172-.318 0-.626-.03-.927-.086.627 1.956 2.444 3.379 4.6 3.419-1.684 1.32-3.808 2.107-6.115 2.107-.398 0-.79-.023-1.175-.069 2.179 1.397 4.768 2.213 7.548 2.213 9.057 0 14.012-7.506 14.012-14.012 0-.213-.005-.425-.014-.636.962-.695 1.797-1.562 2.457-2.549z"/></svg>
           </a>
         </div>
-        &copy; 2025 AdtechAI &nbsp;|&nbsp; <a href="mailto:hello@adtechai.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
+        &copy; 2025 Contact Tsunami &nbsp;|&nbsp; <a href="mailto:hello@contact-tsunami.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
       </div>
     </div>
   </body>
@@ -310,18 +310,18 @@ module.exports = async (req, res) => {
 
     // --- Send notification email to site owner ---
     await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: 'AdtechAI' }, // Use verified sender
-      to: [{ email: ownerEmail, name: 'AdtechAI Site Owner' }],
-      subject: 'New Contact Form Submission from AdtechAI Site',
+      sender: { email: 'jbmatlick@gmail.com', name: 'Contact Tsunami' }, // Use verified sender
+      to: [{ email: ownerEmail, name: 'Contact Tsunami Site Owner' }],
+      subject: 'New Contact Form Submission from Contact Tsunami Site',
       htmlContent: ownerEmailHtml({ name, email, company, message }),
       replyTo: { email, name },
     });
 
     // --- Send auto-reply to submitter ---
     await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: 'AdtechAI' }, // Use verified sender
+      sender: { email: 'jbmatlick@gmail.com', name: 'Contact Tsunami' }, // Use verified sender
       to: [{ email, name }],
-      subject: 'Thanks for Reaching Out to AdtechAI!',
+      subject: 'Thanks for Reaching Out to Contact Tsunami!',
       htmlContent: thankYouEmailHtml({ name }),
     });
 
