@@ -11,9 +11,9 @@ export const COMPANY_LINKEDIN_URL = `https://linkedin.com/company/${COMPANY_SLUG
 export const COMPANY_TWITTER_URL = `https://twitter.com/${COMPANY_SLUG}`;
 
 // Logo and branding assets
-export const COMPANY_LOGO_URL = `https://yourdomain.com/assets/${COMPANY_SLUG}-logo.png`;
-export const COMPANY_SITE_URL = 'https://yourdomain.com'; // Update to your actual site URL
+export const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SLUG}-logo.png`;
+export const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // Taglines and descriptions
-export const COMPANY_TAGLINE = 'The Agent That Runs Your Ads';
-export const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you.'; 
+export const COMPANY_TAGLINE = 'The agent that turns your ads into sales';
+export const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that converts your ads into actual sales.'; 

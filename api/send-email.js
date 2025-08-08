@@ -13,8 +13,8 @@ const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
 const COMPANY_LINKEDIN_URL = `https://linkedin.com/company/${COMPANY_SLUG}`;
 const COMPANY_TWITTER_URL = `https://twitter.com/${COMPANY_SLUG}`;
-const COMPANY_LOGO_URL = `https://yourdomain.com/assets/${COMPANY_SLUG}-logo.png`;
-const COMPANY_SITE_URL = 'https://yourdomain.com';
+const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SLUG}-logo.png`;
+const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // --- CONFIGURATION ---
 // Set up Brevo API key from environment variable
@@ -29,10 +29,10 @@ const tranEmailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 // --- EMAIL TEMPLATES ---
 // Logo and site URL for branding in emails
-const logoUrl = 'https://yourdomain.com/assets/contact-tsunami-logo.png'; // Update to your actual logo URL
-const siteUrl = 'https://yourdomain.com'; // Update to your actual site URL
-const linkedInUrl = 'https://linkedin.com/company/contact-tsunami';
-const twitterUrl = 'https://twitter.com/contact-tsunami';
+const logoUrl = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SLUG}-logo.png`; // Update to your actual logo URL
+const siteUrl = `https://${COMPANY_SLUG}.com`; // Update to your actual site URL
+const linkedInUrl = `https://linkedin.com/company/${COMPANY_SLUG}`;
+const twitterUrl = `https://twitter.com/${COMPANY_SLUG}`;
 
 // Inline SVG wave divider (base64, vibrant curved teal)
 const waveSvg =

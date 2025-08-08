@@ -3,8 +3,8 @@ const path = require('path');
 
 // Company branding constants
 const COMPANY_NAME = 'RiptideB2B';
-const COMPANY_TAGLINE = 'The Agent That Runs Your Ads';
-const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you.';
+const COMPANY_TAGLINE = 'The agent that turns your ads into sales';
+const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that converts your ads into actual sales.';
 
 // Generate index.html
 const indexHtml = `<!DOCTYPE html>
