@@ -1,6 +1,6 @@
 {
-  "short_name": "Ripdide B2B",
-  "name": "Ripdide B2B: The Agent That Runs Your Ads",
+  "short_name": "Riptide B2B",
+  "name": "Riptide B2B: The Agent That Runs Your Ads",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#0284c7",
   "background_color": "#f0f9ff",
-  "description": "Ripdide B2B: Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you."
+  "description": "Riptide B2B: Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you."
 }
