@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Company branding constants
-const COMPANY_NAME = 'Riptide B2B';
+const COMPANY_NAME = 'RiptideB2B';
 const COMPANY_TAGLINE = 'The Agent That Runs Your Ads';
 const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you.';
 
