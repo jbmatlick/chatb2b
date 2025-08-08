@@ -2,7 +2,7 @@ require('dotenv').config({ path: './env.local' });
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 
 // Company branding constants
-const COMPANY_NAME = 'Contact Tsunami';
+const COMPANY_NAME = 'Ripdide B2B';
 
 console.log('Testing Brevo API...');
 console.log('API Key:', process.env.BREVO_API_KEY ? 'Present' : 'Missing');

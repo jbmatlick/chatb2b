@@ -1,6 +1,6 @@
 {
-  "short_name": "Contact Tsunami",
-  "name": "Contact Tsunami: The Agent That Runs Your Ads",
+  "short_name": "Ripdide B2B",
+  "name": "Ripdide B2B: The Agent That Runs Your Ads",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#0284c7",
   "background_color": "#f0f9ff",
-  "description": "Contact Tsunami: Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you."
+  "description": "Ripdide B2B: Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that runs your ads for you."
 }
