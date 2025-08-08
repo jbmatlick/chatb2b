@@ -1,7 +1,20 @@
 // Vercel/Express serverless function to handle contact form email sending via Brevo (Sendinblue)
 // Sends two emails: 1) Notification to site owner, 2) Auto-reply to submitter
 
+require('dotenv').config({ path: './env.local' });
 const SibApiV3Sdk = require('sib-api-v3-sdk');
+
+// Company branding constants
+const COMPANY_NAME = 'Contact Tsunami';
+const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
+const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
+const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
+const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
+const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
+const COMPANY_LINKEDIN_URL = `https://linkedin.com/company/${COMPANY_SLUG}`;
+const COMPANY_TWITTER_URL = `https://twitter.com/${COMPANY_SLUG}`;
+const COMPANY_LOGO_URL = `https://yourdomain.com/assets/${COMPANY_SLUG}-logo.png`;
+const COMPANY_SITE_URL = 'https://yourdomain.com';
 
 // --- CONFIGURATION ---
 // Set up Brevo API key from environment variable
@@ -136,26 +149,26 @@ function thankYouEmailHtml({ name }) {
   <body>
     <div class="container">
       <div class="header">
-        <img src="${logoUrl}" alt="Contact Tsunami Logo" class="logo" />
+        <img src="${COMPANY_LOGO_URL}" alt="${COMPANY_NAME} Logo" class="logo" />
         <h1>Thanks for Reaching Out!</h1>
       </div>
       <div class="wave"></div>
       <div class="content-card">
         <p>Hi <b>${name}</b>,</p>
-        <p>We've received your message and our team will dive in soon to help with your marketing goals. Contact Tsunami is your digital reef—always working beneath the surface to bring you results.</p>
+        <p>We've received your message and our team will dive in soon to help with your marketing goals. ${COMPANY_NAME} is your digital reef—always working beneath the surface to bring you results.</p>
         <p>Questions? Just reply to this email or explore more below.</p>
-        <a href="${siteUrl}" class="cta">Explore Contact Tsunami</a>
+        <a href="${COMPANY_SITE_URL}" class="cta">Explore ${COMPANY_NAME}</a>
       </div>
       <div class="footer">
         <div style="margin-bottom:12px;">
-          <a href="${linkedInUrl}" class="social" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="${COMPANY_LINKEDIN_URL}" class="social" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
           </a>
-          <a href="${twitterUrl}" class="social" target="_blank" rel="noopener" aria-label="Twitter">
+          <a href="${COMPANY_TWITTER_URL}" class="social" target="_blank" rel="noopener" aria-label="Twitter">
             <svg viewBox="0 0 24 24"><path d="M24 4.56c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.956-2.178-1.555-3.594-1.555-2.72 0-4.924 2.204-4.924 4.924 0 .386.044.762.127 1.124-4.092-.205-7.719-2.166-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.23-.616v.062c0 2.386 1.697 4.374 3.95 4.827-.413.112-.849.172-1.298.172-.318 0-.626-.03-.927-.086.627 1.956 2.444 3.379 4.6 3.419-1.684 1.32-3.808 2.107-6.115 2.107-.398 0-.79-.023-1.175-.069 2.179 1.397 4.768 2.213 7.548 2.213 9.057 0 14.012-7.506 14.012-14.012 0-.213-.005-.425-.014-.636.962-.695 1.797-1.562 2.457-2.549z"/></svg>
           </a>
         </div>
-        &copy; 2025 Contact Tsunami &nbsp;|&nbsp; <a href="mailto:hello@contact-tsunami.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
+        &copy; 2025 ${COMPANY_NAME} &nbsp;|&nbsp; <a href="mailto:${COMPANY_EMAIL}" style="color:#2DD4BF;text-decoration:none;">Contact</a>
         <a href="#" class="unsubscribe">Unsubscribe</a>
       </div>
     </div>
@@ -264,7 +277,7 @@ function ownerEmailHtml({ name, email, company, message }) {
   <body>
     <div class="container">
       <div class="header">
-        <img src="${logoUrl}" alt="Contact Tsunami Logo" class="logo" />
+        <img src="${COMPANY_LOGO_URL}" alt="${COMPANY_NAME} Logo" class="logo" />
         <h1>New Submission Alert</h1>
       </div>
       <div class="wave"></div>
@@ -278,14 +291,14 @@ function ownerEmailHtml({ name, email, company, message }) {
       </div>
       <div class="footer">
         <div style="margin-bottom:12px;">
-          <a href="${linkedInUrl}" class="social" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="${COMPANY_LINKEDIN_URL}" class="social" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
           </a>
-          <a href="${twitterUrl}" class="social" target="_blank" rel="noopener" aria-label="Twitter">
+          <a href="${COMPANY_TWITTER_URL}" class="social" target="_blank" rel="noopener" aria-label="Twitter">
             <svg viewBox="0 0 24 24"><path d="M24 4.56c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.956-2.178-1.555-3.594-1.555-2.72 0-4.924 2.204-4.924 4.924 0 .386.044.762.127 1.124-4.092-.205-7.719-2.166-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.23-.616v.062c0 2.386 1.697 4.374 3.95 4.827-.413.112-.849.172-1.298.172-.318 0-.626-.03-.927-.086.627 1.956 2.444 3.379 4.6 3.419-1.684 1.32-3.808 2.107-6.115 2.107-.398 0-.79-.023-1.175-.069 2.179 1.397 4.768 2.213 7.548 2.213 9.057 0 14.012-7.506 14.012-14.012 0-.213-.005-.425-.014-.636.962-.695 1.797-1.562 2.457-2.549z"/></svg>
           </a>
         </div>
-        &copy; 2025 Contact Tsunami &nbsp;|&nbsp; <a href="mailto:hello@contact-tsunami.com" style="color:#2DD4BF;text-decoration:none;">Contact</a>
+        &copy; 2025 ${COMPANY_NAME} &nbsp;|&nbsp; <a href="mailto:${COMPANY_EMAIL}" style="color:#2DD4BF;text-decoration:none;">Contact</a>
       </div>
     </div>
   </body>
@@ -310,18 +323,18 @@ module.exports = async (req, res) => {
 
     // --- Send notification email to site owner ---
     await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: 'Contact Tsunami' }, // Use verified sender
-      to: [{ email: ownerEmail, name: 'Contact Tsunami Site Owner' }],
-      subject: 'New Contact Form Submission from Contact Tsunami Site',
+      sender: { email: 'jbmatlick@gmail.com', name: COMPANY_NAME }, // Use verified sender
+      to: [{ email: ownerEmail, name: `${COMPANY_NAME} Site Owner` }],
+      subject: `New Contact Form Submission from ${COMPANY_NAME} Site`,
       htmlContent: ownerEmailHtml({ name, email, company, message }),
       replyTo: { email, name },
     });
 
     // --- Send auto-reply to submitter ---
     await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: 'Contact Tsunami' }, // Use verified sender
+      sender: { email: 'jbmatlick@gmail.com', name: COMPANY_NAME }, // Use verified sender
       to: [{ email, name }],
-      subject: 'Thanks for Reaching Out to Contact Tsunami!',
+      subject: `Thanks for Reaching Out to ${COMPANY_NAME}!`,
       htmlContent: thankYouEmailHtml({ name }),
     });
 

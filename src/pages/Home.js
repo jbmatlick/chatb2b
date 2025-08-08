@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import heroReef from '../assets/hero-reef.jpg';
 import { ClockIcon, ArrowTrendingUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { COMPANY_NAME, COMPANY_TAGLINE } from '../constants';
 
 const advantageData = [
   {
@@ -40,10 +41,10 @@ const Home = () => {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="glass-card p-12 md:p-16 fade-in">
             <h1 className="section-title">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">Contact Tsunami: The Agent That Runs Your Ads</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">{COMPANY_NAME}: {COMPANY_TAGLINE}</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              Stop managing campaigns. Start commanding results. Contact Tsunami transforms your goals into autonomous, optimized executions – because your vision deserves intelligent action.
+              Stop managing campaigns. Start commanding results. {COMPANY_NAME} transforms your goals into autonomous, optimized executions – because your vision deserves intelligent action.
             </p>
             <Link
               to="/product"
@@ -59,13 +60,13 @@ const Home = () => {
         <div className="absolute bottom-40 left-20 w-12 h-12 bg-indigo-400/20 rounded-full wave-float" style={{animationDelay: '4s'}}></div>
       </section>
 
-      {/* Why Contact Tsunami? Section */}
+      {/* Why Company? Section */}
       <section className="relative flex flex-col items-center justify-center py-16">
         <div className="glass-card w-full max-w-3xl mx-auto py-12 px-6 md:px-12 text-center fade-in">
-          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why Contact Tsunami?</h2>
+          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why {COMPANY_NAME}?</h2>
           <div className="space-y-6">
             <p className="text-lg text-white/80 leading-relaxed">
-              Tired of drowning in dashboards? Contact Tsunami calms the storm. We channel your data into strategic surges that actually work.
+              Tired of drowning in dashboards? {COMPANY_NAME} calms the storm. We channel your data into strategic surges that actually work.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
               This isn't another dashboard—it's your intelligent agent. Set goals, not campaigns. Harvest insights, not data.
@@ -78,8 +79,8 @@ const Home = () => {
         {/* Wave divider between major sections */}
       </section>
 
-      {/* The Contact Tsunami Advantage Section (Card-based) */}
-              <section aria-label="Contact Tsunami Advantage" className="py-16">
+      {/* The Company Advantage Section (Card-based) */}
+              <section aria-label={COMPANY_NAME} Advantage className="py-16">
         <div className="grid gap-8 md:grid-cols-3">
           {advantageData.map((item, idx) => (
             <div
@@ -100,12 +101,12 @@ const Home = () => {
       {/* --- Testimonials Section (added July 2025, per enhanced prompt) --- */}
       <section className="py-16 fade-in">
         <h2 className="section-title mb-4">What Our Users Say</h2>
-        <p className="text-white/80 text-lg text-center mb-10 max-w-2xl mx-auto">Hear from marketers just like you who've transformed their workflows with Contact Tsunami.</p>
+        <p className="text-white/80 text-lg text-center mb-10 max-w-2xl mx-auto">Hear from marketers just like you who've transformed their workflows with {COMPANY_NAME}.</p>
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass-card flex flex-col items-center p-8 fade-in">
               <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0ea5e9&color=fff" alt="Avatar of Sarah Chen" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"Contact Tsunami delivered a 3x ROI boost in our first quarter by autonomously optimizing campaigns across channels. No more manual tweaks—just results."</blockquote>
+              <blockquote className="italic text-white/90 mb-4">"{COMPANY_NAME} delivered a 3x ROI boost in our first quarter by autonomously optimizing campaigns across channels. No more manual tweaks—just results."</blockquote>
               <div className="font-bold text-teal-300">Sarah Chen<br /><span className="font-normal text-white/70">CMO, TechForge Solutions</span></div>
             </div>
             <div className="glass-card flex flex-col items-center p-8 fade-in">
@@ -115,7 +116,7 @@ const Home = () => {
             </div>
             <div className="glass-card flex flex-col items-center p-8 fade-in">
               <img src="https://ui-avatars.com/api/?name=Elena+Vasquez&background=0ea5e9&color=fff" alt="Avatar of Elena Vasquez" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"Bringing our own data into Contact Tsunami revolutionized our marketing landscape—hyper-personalized targeting that feels like magic, with insights we never had before."</blockquote>
+              <blockquote className="italic text-white/90 mb-4">"Bringing our own data into {COMPANY_NAME} revolutionized our marketing landscape—hyper-personalized targeting that feels like magic, with insights we never had before."</blockquote>
               <div className="font-bold text-teal-300">Elena Vasquez<br /><span className="font-normal text-white/70">Director of Analytics, GlobalReach Inc.</span></div>
             </div>
           </div>
@@ -129,7 +130,7 @@ const Home = () => {
           <div className="glass-card inline-block px-12 py-10">
             <h2 className="text-3xl font-semibold text-teal-300 mb-4">Join the Vanguard</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Tired of drowning in ad chaos? What if you could just set your goals and let an intelligent agent handle the rest—turning them into optimized, autonomous results? Dive into the future of agentic marketing with Contact Tsunami. It's fluid, adaptive, and built for real impact.
+              Tired of drowning in ad chaos? What if you could just set your goals and let an intelligent agent handle the rest—turning them into optimized, autonomous results? Dive into the future of agentic marketing with {COMPANY_NAME}. It's fluid, adaptive, and built for real impact.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

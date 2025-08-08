@@ -97,29 +97,28 @@ The website is built mobile-first with breakpoints:
 - **Tablet**: `md:` (768px+)
 - **Desktop**: `lg:` (1024px+)
 
-## 🔧 Customization
+## �� Customization
 
-### Adding New Pages
-1. Create a new component in `src/pages/`
-2. Add the route to `src/App.js`
-3. Update navigation in `src/components/Navbar.js`
+### Company Branding
+All company branding is centralized in `src/constants.js` for easy rebranding:
 
-### Modifying Styles
-- Global styles: `src/index.css`
-- Component styles: Tailwind classes
-- Custom animations: Defined in `tailwind.config.js`
+```javascript
+export const COMPANY_NAME = 'Contact Tsunami';
+export const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
+export const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
+export const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
+```
 
-### Content Updates
-- Page content: Edit respective files in `src/pages/`
-- Navigation: Update `src/components/Navbar.js`
-- Footer: Modify `src/components/Footer.js`
+### Styling
+- **Tailwind CSS**: Utility-first CSS framework
+- **Custom Classes**: Defined in `src/index.css`
+- **Component Styles**: Scoped to individual components
 
 ## 🎯 Key Messaging Pillars
 
 1. **Autonomy as Liberation**: "From intent to impact – Contact Tsunami handles the 'how' so you focus on the 'why'"
 2. **Intelligence as Depth**: "Beneath the waves of data lies untapped intelligence"
 3. **Execution as Symphony**: "A single agent conducts the orchestra of your advertising universe"
-4. **Invisibility as Elegance**: "The best technology fades into the background, leaving only results"
 
 ## 🔗 External Links
 
