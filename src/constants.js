@@ -1,7 +1,7 @@
 // Company branding constants for easy rebranding
 export const COMPANY_NAME = 'RiptideB2B';
 export const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
-export const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
+export const COMPANY_EMAIL = `sales@${COMPANY_SLUG}.com`;
 export const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
 export const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 export const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;

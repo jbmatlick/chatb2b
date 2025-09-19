@@ -7,7 +7,7 @@ const SibApiV3Sdk = require('sib-api-v3-sdk');
 // Company branding constants
 const COMPANY_NAME = 'RiptideB2B';
 const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
-const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
+const COMPANY_EMAIL = `sales@${COMPANY_SLUG}.com`;
 const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
 const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
