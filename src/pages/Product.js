@@ -15,7 +15,7 @@ const workflow = [
   {
     step: 'Real-Time Analysis',
     color: 'bg-indigo-600',
-    desc: 'The agent crawls vendor documentation, APIs, and UIs weekly to build dynamic feature graphs and objective scores. It aggregates real-time data and generates tailored reports with market quadrants, eliminating pay-to-play bias.',
+    desc: 'The agent analyzes vendor documentation, APIs, and UIs weekly to build dynamic feature graphs and objective scores. It aggregates real-time data and generates tailored reports with market quadrants, eliminating pay-to-play bias.',
   },
   {
     step: 'Solution Delivery',

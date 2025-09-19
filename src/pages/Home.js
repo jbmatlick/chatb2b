@@ -44,7 +44,7 @@ const Home = () => {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">Revolutionize B2B Software Procurement with AI-Driven Intelligence</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              Say goodbye to biased reviews and manual evaluations. Our AI agent crawls features in real-time, automates demos, and benchmarks contracts for transparent, efficient decisions.
+              Say goodbye to biased reviews and manual evaluations. Our AI agent analyzes features in real-time, automates demos, and benchmarks contracts for transparent, efficient decisions.
             </p>
             <p className="text-lg text-white/70 mb-8 italic">
               The future of transparent software procurement.
@@ -135,7 +135,7 @@ const Home = () => {
               {COMPANY_NAME} is disrupting B2B procurement with AI neutrality. Our mission: Democratize software evaluation, restoring trust in a market riddled with corruption and pay-to-play bias.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              We believe procurement decisions should be based on objective data, not vendor influence. Our AI agents crawl real-time feature data, eliminate bias, and deliver transparent intelligence that procurement teams can trust.
+              We believe procurement decisions should be based on objective data, not vendor influence. Our AI agents analyze real-time feature data, eliminate bias, and deliver transparent intelligence that procurement teams can trust.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
               Long-term vision: Replace static analyst reports with dynamic, Wall Street-ready intelligence that adapts to market changes and delivers real value to procurement professionals.

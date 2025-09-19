@@ -14,7 +14,7 @@ const Features = () => {
     {
       icon: <ChartBarIcon className="w-12 h-12 text-blue-500" aria-label="Real-Time Feature Scoring" />,
       title: 'Real-Time Feature Scoring',
-      description: 'AI crawls vendor docs, APIs, and UIs weekly to build dynamic quadrants and objective scores, eliminating pay-to-play bias.',
+      description: 'AI analyzes vendor docs, APIs, and UIs weekly to build dynamic quadrants and objective scores, eliminating pay-to-play bias.',
       benefits: [
         'Weekly feature updates across 500+ vendors',
         'Objective scoring based on actual capabilities',
