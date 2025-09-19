@@ -3,6 +3,8 @@
 
 require('dotenv').config({ path: './env.local' });
 const SibApiV3Sdk = require('sib-api-v3-sdk');
+const fs = require('fs');
+const path = require('path');
 
 // Company branding constants
 const COMPANY_NAME = 'RiptideB2B';
@@ -35,6 +37,62 @@ function logEvent(level, message, data = {}) {
   
   // In production, you might want to send logs to a service like LogRocket, Sentry, or DataDog
   // For now, we'll just use console.log which Vercel captures
+}
+
+// Store form submission to JSON file
+function storeSubmission(formData, requestId) {
+  try {
+    const submission = {
+      id: requestId,
+      timestamp: new Date().toISOString(),
+      name: formData.name,
+      email: formData.email,
+      company: formData.company || '',
+      message: formData.message,
+      source: 'contact_form',
+      status: 'new'
+    };
+
+    // In production (Vercel), we can't write to files, so we'll just log it
+    // In local development, we can write to a file
+    if (process.env.NODE_ENV === 'development') {
+      const submissionsFile = path.join(process.cwd(), 'submissions.json');
+      let submissions = [];
+      
+      // Read existing submissions
+      if (fs.existsSync(submissionsFile)) {
+        try {
+          const data = fs.readFileSync(submissionsFile, 'utf8');
+          submissions = JSON.parse(data);
+        } catch (err) {
+          console.error('Error reading submissions file:', err);
+        }
+      }
+      
+      // Add new submission
+      submissions.push(submission);
+      
+      // Write back to file
+      fs.writeFileSync(submissionsFile, JSON.stringify(submissions, null, 2));
+      logEvent('info', 'Submission stored locally', { requestId, submissionId: submission.id });
+    } else {
+      // In production, just log the submission (you could integrate with Airtable here)
+      logEvent('info', 'Submission received (production)', { 
+        requestId, 
+        submission: {
+          name: submission.name,
+          email: submission.email,
+          company: submission.company,
+          messageLength: submission.message.length
+        }
+      });
+    }
+    
+    return submission;
+  } catch (error) {
+    logEvent('error', 'Failed to store submission', { requestId, error: error.message });
+    return null;
+  }
 }
 
 // Initialize Brevo API client
@@ -429,6 +487,9 @@ module.exports = async (req, res) => {
       email: email.trim().toLowerCase(),
       message: message.trim()
     };
+
+    // Store the submission
+    const storedSubmission = storeSubmission(sanitizedData, requestId);
 
     logEvent('info', 'Sending emails', { 
       requestId, 

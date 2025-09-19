@@ -59,15 +59,13 @@ const Navbar = () => {
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <a
-                href={COMPANY_APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
                 className="btn-accent ml-2"
                 aria-label={`Sign Up Free for ${COMPANY_NAME}`}
               >
                 Sign Up Free
-              </a>
+              </Link>
             </div>
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -143,15 +141,13 @@ const Navbar = () => {
                 Contact
               </Link>
             </nav>
-            <a
-              href={COMPANY_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contact"
               className="btn-accent w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Sign Up Free
-            </a>
+            </Link>
           </div>
         </div>
       }

@@ -8,6 +8,7 @@ import Features from './pages/Features';
 import Contact from './pages/Contact';
 import ScrollToTop from './ScrollToTop';
 import Privacy from './pages/Privacy';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/features" element={<Features />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         <Footer />

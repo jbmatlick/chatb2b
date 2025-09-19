@@ -134,14 +134,12 @@ const Features = () => {
             Join hundreds of procurement professionals who've already streamlined their software evaluation process with AI-powered intelligence.
           </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={COMPANY_APP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/contact"
                   className="btn-accent"
                 >
                   Start Free Evaluation
-                </a>
+                </Link>
                 <Link
                   to="/contact"
                   className="btn-accent"

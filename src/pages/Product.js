@@ -107,13 +107,13 @@ const Product = () => {
               Stop wrestling with biased reviews. Start commanding intelligent procurement. Complexity curated, not confronted.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href={COMPANY_APP_URL}
+              <Link
+                to="/contact"
                 className="btn-accent"
                 aria-label={`Start Free Evaluation with ${COMPANY_NAME}`}
               >
                 Start Free Evaluation
-              </a>
+              </Link>
               <Link
                 to="/contact"
                 className="btn-accent"

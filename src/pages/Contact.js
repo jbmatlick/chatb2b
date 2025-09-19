@@ -245,22 +245,20 @@ const Contact = () => {
           <p className="text-base text-white/80 mb-0">
             Every insight helps us build better. From today's AI intelligence to tomorrow's innovations—your voice shapes the future of procurement.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <a
-              href={COMPANY_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent flex-1 text-center"
-            >
-              Try {COMPANY_NAME}
-            </a>
-            <a
-              href={`mailto:${COMPANY_EMAIL}`}
-              className="btn-accent flex-1 text-center"
-            >
-              Email Us
-            </a>
-          </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <a
+                  href={`mailto:${COMPANY_EMAIL}`}
+                  className="btn-accent flex-1 text-center"
+                >
+                  Email Us
+                </a>
+                <Link
+                  to="/features"
+                  className="btn-accent flex-1 text-center"
+                >
+                  Learn More
+                </Link>
+              </div>
         </div>
       </main>
     </div>
