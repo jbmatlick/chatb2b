@@ -61,6 +61,11 @@ export const COMPANY_TAGLINE = 'The agent that turns your ads into sales';
 export const COMPANY_DESCRIPTION = '...';
 ```
 
+### Logo
+- Put your UI logo image in `public/` as `riptideb2b-logo.png` (used in `Navbar`).
+- Replace favicons: `public/favicon.ico`, `public/logo192.png`, `public/logo512.png`.
+- Emails load a public URL set in `api/send-email.js` via `COMPANY_LOGO_URL`.
+
 To rebrand, simply update these constants and run:
 ```bash
 npm run generate-public

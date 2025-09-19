@@ -17,10 +17,9 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-gradient-oceanic transition-fluid hover:scale-105 wave-float">
-                {COMPANY_NAME}
-              </span>
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/riptideb2b-logo.png" alt={`${COMPANY_NAME} logo`} className="h-12 md:h-14 w-auto object-contain origin-left transform scale-[1.8] md:scale-[2]" />
+              <span className="sr-only">{COMPANY_NAME}</span>
             </Link>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -39,7 +38,16 @@ const Navbar = () => {
                   isActive('/product') ? 'underline underline-offset-8 decoration-teal-400' : ''
                 }`}
               >
-                Product
+                How It Works
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                to="/features"
+                className={`text-white/90 hover:text-teal-400 transition-all duration-300 font-medium relative group ${
+                  isActive('/features') ? 'underline underline-offset-8 decoration-teal-400' : ''
+                }`}
+              >
+                Features
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
@@ -56,9 +64,9 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent ml-2"
-                aria-label={`Try ${COMPANY_NAME}`}
+                aria-label={`Sign Up Free for ${COMPANY_NAME}`}
               >
-                Login
+                Sign Up Free
               </a>
             </div>
             {/* Mobile menu button */}
@@ -114,7 +122,16 @@ const Navbar = () => {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Product
+                How It Works
+              </Link>
+              <Link
+                to="/features"
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 text-ocean-700 hover:text-teal-500 ${
+                  isActive('/features') ? 'underline underline-offset-8 decoration-teal-400' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Features
               </Link>
               <Link
                 to="/contact"
@@ -133,7 +150,7 @@ const Navbar = () => {
               className="btn-accent w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Login
+              Sign Up Free
             </a>
           </div>
         </div>

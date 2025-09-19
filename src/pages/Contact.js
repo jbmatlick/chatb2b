@@ -77,7 +77,7 @@ const Contact = () => {
         <div className="text-center">
           <h1 className="section-title">Contact Us</h1>
           <p className="text-lg text-white/80 max-w-md mx-auto mb-10">
-            Got questions? Ready to transform your marketing? Let's talk. Share your challenges; we'll show you how {COMPANY_NAME} can help.
+            Got questions? Ready to transform your procurement process? Let's talk. Share your challenges; we'll show you how {COMPANY_NAME} can help.
           </p>
         </div>
 
@@ -157,7 +157,7 @@ const Contact = () => {
                 required
                 rows={4}
                 className="input-modern w-full text-white placeholder-white/50 resize-none"
-                placeholder={`Tell us about your marketing challenges and how ${COMPANY_NAME} can help...`}
+                placeholder={`Tell us about your procurement challenges and how ${COMPANY_NAME} can help...`}
                 disabled={isSubmitting}
               />
             </div>
@@ -176,7 +176,7 @@ const Contact = () => {
         <div className="bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden mt-12 p-8 text-center fade-in">
           <h2 className="text-2xl font-semibold text-teal-300 mb-2">Your Feedback Drives Our Growth</h2>
           <p className="text-base text-white/80 mb-0">
-            Every insight helps us build better. From today's autonomy to tomorrow's innovations—your voice shapes the future of agentic marketing.
+            Every insight helps us build better. From today's AI intelligence to tomorrow's innovations—your voice shapes the future of procurement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
@@ -185,7 +185,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="btn-accent flex-1 text-center"
             >
-                              Try {COMPANY_NAME}
+              Try {COMPANY_NAME}
             </a>
             <a
               href={`mailto:${COMPANY_EMAIL}`}

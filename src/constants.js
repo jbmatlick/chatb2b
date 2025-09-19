@@ -15,5 +15,5 @@ export const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SL
 export const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // Taglines and descriptions
-export const COMPANY_TAGLINE = 'The agent that turns your ads into sales';
-export const COMPANY_DESCRIPTION = 'Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that converts your ads into actual sales.'; 
+export const COMPANY_TAGLINE = 'AI-Powered Procurement Intelligence: Unbiased Software Evaluation and Automation';
+export const COMPANY_DESCRIPTION = 'AI-driven B2B software procurement intelligence platform. Unbiased, real-time software evaluation, AI procurement agents, feature scoring, and contract benchmarking for transparent, efficient decisions.'; 

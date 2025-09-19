@@ -3,19 +3,24 @@ import { COMPANY_NAME, COMPANY_APP_URL, COMPANY_EMAIL } from '../constants';
 
 const workflow = [
   {
-    step: 'Goal',
+    step: 'Define Problem',
     color: 'bg-blue-600',
-            desc: `Articulate intent naturally; ${COMPANY_NAME} interprets via NLP parsers, aligning with semantic web ontologies. Example: "Allocate $5,000 to secure demo requests from cybersecurity decision-makers."`,
+    desc: `Log in and describe your software challenge naturally. Example: "We need to optimize our CRM for better lead management and sales forecasting." ${COMPANY_NAME} interprets your requirements via NLP and maps them to procurement objectives.`,
   },
   {
-    step: 'Plan',
+    step: 'AI Refinement',
     color: 'bg-teal-600',
-    desc: 'Synthesize from CDP graphs; employs graph neural networks for targeting, ensuring probabilistic fidelity. The agent queries integrated data lakes for audience segmentation and curates creatives from repositories.',
+    desc: 'Our AI agent asks targeted questions to refine your requirements, understanding stakeholder needs, budget constraints, and integration requirements. This ensures comprehensive problem definition before evaluation begins.',
   },
   {
-    step: 'Execute',
+    step: 'Real-Time Analysis',
     color: 'bg-indigo-600',
-    desc: 'Deploy across channels with Bayesian optimization. The agent interfaces seamlessly with APIs from Meta, LinkedIn, and other platforms, executing multi-channel symphonies where each element harmonizes.',
+    desc: 'The agent crawls vendor documentation, APIs, and UIs weekly to build dynamic feature graphs and objective scores. It aggregates real-time data and generates tailored reports with market quadrants, eliminating pay-to-play bias.',
+  },
+  {
+    step: 'Solution Delivery',
+    color: 'bg-purple-600',
+    desc: 'Receive comprehensive solution briefs with feature comparisons, contract benchmarks, and vendor recommendations. Authorize next steps like demos or negotiations—all handled autonomously by the AI agent.',
   },
 ];
 
@@ -25,12 +30,12 @@ const Product = () => {
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="section-title">How {COMPANY_NAME} Works</h1>
-        <p className="text-lg text-white/90 mb-4">Stop worrying about the 'how'. {COMPANY_NAME} handles execution so you focus on strategy.</p>
+        <p className="text-lg text-white/90 mb-4">Stop worrying about biased reviews and manual evaluations. {COMPANY_NAME} handles procurement intelligence so you focus on strategic decisions.</p>
       </section>
 
-      {/* Agentic Workflow Section */}
+      {/* AI Procurement Workflow Section */}
       <section>
-        <h2 className="text-3xl font-semibold text-teal-300 mb-10 text-center">The Agentic Workflow</h2>
+        <h2 className="text-3xl font-semibold text-teal-300 mb-10 text-center">The AI Procurement Workflow</h2>
         <ol className="space-y-10">
           {workflow.map((item, idx) => (
             <li key={item.step} className="glass-card reef-shadow p-10 flex flex-col md:flex-row items-start gap-8 transition-transform duration-300 hover:scale-105 reef-shadow-hover">
@@ -49,22 +54,22 @@ const Product = () => {
         <h2 className="text-3xl font-semibold text-teal-300 mb-10 text-center">Real-World Examples</h2>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="glass-card p-10 flex flex-col gap-2">
-            <div className="font-bold text-teal-400 mb-2">B2B Lead Generation</div>
+            <div className="font-bold text-teal-400 mb-2">CRM Software Evaluation</div>
             <ul className="text-white/80 mb-2 list-disc list-inside space-y-1">
-              <li>Models buyer journeys for "B2B leads in HR software"</li>
-              <li>Deploys LinkedIn creatives with ABM precision</li>
-              <li>Yields 15% higher CTRs than traditional approaches</li>
+              <li>Defined requirements for "better lead management and forecasting"</li>
+              <li>AI agent analyzed 12 vendors across feature matrices</li>
+              <li>Generated unbiased comparison with contract benchmarks</li>
             </ul>
-            <div className="text-sm text-teal-300 font-semibold">Result: 200 qualified leads from $10K spend</div>
+            <div className="text-sm text-teal-300 font-semibold">Result: 6-month evaluation completed in 2 weeks, saved $200K</div>
           </div>
           <div className="glass-card p-10 flex flex-col gap-2">
-            <div className="font-bold text-teal-400 mb-2">E-commerce Optimization</div>
+            <div className="font-bold text-teal-400 mb-2">HR Tech Procurement</div>
             <ul className="text-white/80 mb-2 list-disc list-inside space-y-1">
-              <li>Automates flows for "increase ROAS for fashion brand"</li>
-              <li>Continuously optimizes creative performance and targeting</li>
-              <li>Works across multiple channels</li>
+              <li>Automated evaluation for "employee engagement platform"</li>
+              <li>Real-time feature scoring eliminated vendor bias</li>
+              <li>Contract intelligence revealed 30% overpricing</li>
             </ul>
-            <div className="text-sm text-teal-300 font-semibold">Result: 2.3x ROAS improvement in 30 days</div>
+            <div className="text-sm text-teal-300 font-semibold">Result: 3x faster decision, 25% cost reduction</div>
           </div>
         </div>
       </section>
@@ -75,18 +80,18 @@ const Product = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">1</div>
-            <div className="font-semibold text-teal-400 mb-2">Autonomy Liberates</div>
-            <div className="text-white/80 text-base">Reclaim 80% of time spent on execution, redirecting efforts toward strategic ideation.</div>
+            <div className="font-semibold text-teal-400 mb-2">Unbiased Intelligence</div>
+            <div className="text-white/80 text-base">Eliminate pay-to-play bias with real-time feature scoring and transparent methodology that delivers objective insights.</div>
           </div>
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">2</div>
-            <div className="font-semibold text-teal-400 mb-2">Intelligence Dives Deep</div>
-            <div className="text-white/80 text-base">Achieve 2-3x lift in ROAS through prescient optimizations and ensemble models.</div>
+            <div className="font-semibold text-teal-400 mb-2">Efficiency Through AI</div>
+            <div className="text-white/80 text-base">Compress procurement cycles from months to days with autonomous AI agents that handle demos, analysis, and recommendations.</div>
           </div>
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">3</div>
-            <div className="font-semibold text-teal-400 mb-2">Invisible Elegance</div>
-            <div className="text-white/80 text-base">The best technology fades into the background, leaving only results in the spotlight.</div>
+            <div className="font-semibold text-teal-400 mb-2">Transparent Process</div>
+            <div className="text-white/80 text-base">Open methodology and verifiable data sources ensure complete transparency in every recommendation and decision.</div>
           </div>
         </div>
       </section>
@@ -96,24 +101,24 @@ const Product = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
         <div className="relative z-10 py-16 text-center text-white">
           <div className="glass-card inline-block px-12 py-10">
-            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Experience Agentic Advertising?</h2>
+            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Experience AI-Powered Procurement?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Stop wrestling with tools. Start commanding an agent. Complexity curated, not confronted.
+              Stop wrestling with biased reviews. Start commanding intelligent procurement. Complexity curated, not confronted.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href={COMPANY_APP_URL}
                 className="btn-accent"
-                                  aria-label={`Try ${COMPANY_NAME}`}
+                aria-label={`Start Free Evaluation with ${COMPANY_NAME}`}
               >
-                Try {COMPANY_NAME}
+                Start Free Evaluation
               </a>
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
                 className="btn-accent"
-                aria-label="Email Us"
+                aria-label="Contact Us"
               >
-                Email Us
+                Contact Us
               </a>
             </div>
           </div>

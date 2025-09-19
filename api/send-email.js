@@ -13,7 +13,7 @@ const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
 const COMPANY_LINKEDIN_URL = `https://linkedin.com/company/${COMPANY_SLUG}`;
 const COMPANY_TWITTER_URL = `https://twitter.com/${COMPANY_SLUG}`;
-const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SLUG}-logo.png`;
+const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/riptideb2b-logo.png`;
 const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // --- CONFIGURATION ---

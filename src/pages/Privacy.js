@@ -15,7 +15,7 @@ const Privacy = () => (
           </p>
           
           <p>
-            This Privacy Policy describes how {COMPANY_NAME} collects, uses, and shares your Personal Data when you visit our website, use our platform, or interact with us. This Privacy Policy also describes your rights and choices regarding your Personal Data. This Privacy Policy applies to individuals who visit {COMPANY_NAME}, partner or client websites, and individuals who have a business relationship with {COMPANY_NAME}, such as vendors and corporate sponsors, in their business interactions with {COMPANY_NAME}. If you are a California resident, please review the "Notice of Collection for California" section below for important information about the categories of Personal Data we collect and disclose.
+            This Privacy Policy describes how {COMPANY_NAME} collects, uses, and shares your Personal Data when you visit our website, use our AI-powered procurement intelligence platform, or interact with us. This Privacy Policy also describes your rights and choices regarding your Personal Data. This Privacy Policy applies to individuals who visit {COMPANY_NAME}, use our procurement evaluation services, and individuals who have a business relationship with {COMPANY_NAME}, such as software vendors and corporate procurement teams, in their business interactions with {COMPANY_NAME}. If you are a California resident, please review the "Notice of Collection for California" section below for important information about the categories of Personal Data we collect and disclose.
           </p>
           
           <h2 className="text-xl font-bold mb-4 text-white">Information We Collect</h2>
