@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { COMPANY_NAME, COMPANY_APP_URL, COMPANY_EMAIL } from '../constants';
 
 const workflow = [
@@ -113,13 +114,13 @@ const Product = () => {
               >
                 Start Free Evaluation
               </a>
-              <a
-                href={`mailto:${COMPANY_EMAIL}`}
+              <Link
+                to="/contact"
                 className="btn-accent"
-                aria-label="Contact Us"
+                aria-label="Contact Us to Learn More"
               >
-                Contact Us
-              </a>
+                Contact Us to Learn More
+              </Link>
             </div>
           </div>
         </div>

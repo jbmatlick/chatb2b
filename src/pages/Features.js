@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import coralBg from '../assets/contact-coral.jpg';
 import { COMPANY_NAME, COMPANY_APP_URL, COMPANY_EMAIL } from '../constants';
 import { 
@@ -132,22 +133,22 @@ const Features = () => {
           <p className="text-white/80 mb-6 max-w-2xl mx-auto">
             Join hundreds of procurement professionals who've already streamlined their software evaluation process with AI-powered intelligence.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={COMPANY_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent"
-            >
-              Start Free Evaluation
-            </a>
-            <a
-              href={`mailto:${COMPANY_EMAIL}`}
-              className="btn-accent"
-            >
-              Contact Sales
-            </a>
-          </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={COMPANY_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-accent"
+                >
+                  Start Free Evaluation
+                </a>
+                <Link
+                  to="/contact"
+                  className="btn-accent"
+                >
+                  Contact Us to Learn More
+                </Link>
+              </div>
         </div>
       </main>
     </div>

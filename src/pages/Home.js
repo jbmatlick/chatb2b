@@ -49,12 +49,20 @@ const Home = () => {
             <p className="text-lg text-white/70 mb-8 italic">
               The future of transparent software procurement.
             </p>
-            <Link
-              to="/product"
-              className="btn-accent text-lg"
-            >
-              Start Your Free Evaluation
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/product"
+                className="btn-accent text-lg"
+              >
+                Start Your Free Evaluation
+              </Link>
+              <Link
+                to="/contact"
+                className="btn-accent text-lg"
+              >
+                Contact Us to Learn More
+              </Link>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-200/50 via-blue-100/30 to-transparent"></div>
@@ -167,9 +175,9 @@ const Home = () => {
               <Link
                 to="/contact"
                 className="btn-accent"
-                aria-label="Start Free Evaluation"
+                aria-label="Contact Us to Learn More"
               >
-                Start Free Evaluation
+                Contact Us to Learn More
               </Link>
             </div>
           </div>
