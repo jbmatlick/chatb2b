@@ -21,6 +21,22 @@ const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 const apiKey = process.env.BREVO_API_KEY;
 const ownerEmail = process.env.OWNER_EMAIL || 'your@email.com'; // Set this in env.local or Vercel env vars
 
+// Enhanced logging function
+function logEvent(level, message, data = {}) {
+  const timestamp = new Date().toISOString();
+  const logEntry = {
+    timestamp,
+    level,
+    message,
+    ...data
+  };
+  
+  console.log(`[${level.toUpperCase()}] ${timestamp}: ${message}`, data);
+  
+  // In production, you might want to send logs to a service like LogRocket, Sentry, or DataDog
+  // For now, we'll just use console.log which Vercel captures
+}
+
 // Initialize Brevo API client
 const client = SibApiV3Sdk.ApiClient.instance;
 const apiKeyInstance = client.authentications['api-key'];
@@ -309,40 +325,223 @@ function ownerEmailHtml({ name, email, company, message }) {
 // --- MAIN HANDLER ---
 // Handles POST requests from the contact form, sends notification and auto-reply emails
 module.exports = async (req, res) => {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  const requestId = Math.random().toString(36).substr(2, 9);
+  
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    logEvent('info', 'CORS preflight request', { requestId });
+    return res.status(200).end();
   }
 
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    logEvent('warn', 'Invalid HTTP method', { 
+      requestId, 
+      method: req.method, 
+      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress 
+    });
+    return res.status(405).json({ 
+      success: false,
+      error: 'Method not allowed. Please use POST.' 
+    });
+  }
+
+  // Log request start
+  logEvent('info', 'Contact form submission started', {
+    requestId,
+    ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+    userAgent: req.headers['user-agent'],
+    contentLength: req.headers['content-length']
+  });
+
   try {
-    // Extract and validate form fields
-    const { name, email, message, company } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Missing required fields' });
+    // Check if API key is configured
+    if (!apiKey) {
+      logEvent('error', 'Brevo API key not configured', { requestId });
+      return res.status(500).json({ 
+        success: false,
+        error: 'Email service not configured. Please try again later.' 
+      });
     }
 
-    // --- Send notification email to site owner ---
-    await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: COMPANY_NAME }, // Use verified sender
-      to: [{ email: ownerEmail, name: `${COMPANY_NAME} Site Owner` }],
-      subject: `New Contact Form Submission from ${COMPANY_NAME} Site`,
-      htmlContent: ownerEmailHtml({ name, email, company, message }),
-      replyTo: { email, name },
+    // Check if owner email is configured
+    if (!ownerEmail || ownerEmail === 'your@email.com') {
+      logEvent('error', 'Owner email not configured', { requestId });
+      return res.status(500).json({ 
+        success: false,
+        error: 'Email service not configured. Please try again later.' 
+      });
+    }
+
+    // Extract and validate form fields
+    const { name, email, message, company } = req.body;
+
+    // Log form data (sanitized for privacy)
+    logEvent('info', 'Form data received', {
+      requestId,
+      hasName: !!name,
+      hasCompany: !!company,
+      hasEmail: !!email,
+      hasMessage: !!message,
+      messageLength: message?.length || 0
     });
 
-    // --- Send auto-reply to submitter ---
-    await tranEmailApi.sendTransacEmail({
-      sender: { email: 'jbmatlick@gmail.com', name: COMPANY_NAME }, // Use verified sender
-      to: [{ email, name }],
-      subject: `Thanks for Reaching Out to ${COMPANY_NAME}!`,
-      htmlContent: thankYouEmailHtml({ name }),
+    // Enhanced validation
+    const validationErrors = [];
+    
+    if (!name || name.trim().length < 2) {
+      validationErrors.push('Name must be at least 2 characters long');
+    }
+    
+    if (!email || email.trim().length === 0) {
+      validationErrors.push('Email is required');
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.trim())) {
+        validationErrors.push('Please enter a valid email address');
+      }
+    }
+    
+    if (!message || message.trim().length < 10) {
+      validationErrors.push('Message must be at least 10 characters long');
+    }
+
+    if (validationErrors.length > 0) {
+      logEvent('warn', 'Form validation failed', { 
+        requestId, 
+        errors: validationErrors 
+      });
+      return res.status(400).json({ 
+        success: false,
+        error: validationErrors.join('. ') + '.'
+      });
+    }
+
+    // Sanitize inputs
+    const sanitizedData = {
+      name: name.trim(),
+      company: company?.trim() || '',
+      email: email.trim().toLowerCase(),
+      message: message.trim()
+    };
+
+    logEvent('info', 'Sending emails', { 
+      requestId, 
+      toOwner: ownerEmail,
+      toSubmitter: sanitizedData.email 
     });
 
-    // Respond with success
-    return res.status(200).json({ success: true });
+    // Send notification email to site owner
+    let ownerResult, thankYouResult;
+    let ownerError, thankYouError;
+
+    try {
+      ownerResult = await tranEmailApi.sendTransacEmail({
+        sender: { email: COMPANY_EMAIL, name: COMPANY_NAME },
+        to: [{ email: ownerEmail, name: `${COMPANY_NAME} Site Owner` }],
+        subject: `New Contact Form Submission from ${COMPANY_NAME} Site`,
+        htmlContent: ownerEmailHtml(sanitizedData),
+        replyTo: { email: sanitizedData.email, name: sanitizedData.name },
+      });
+      logEvent('info', 'Owner notification email sent', { 
+        requestId, 
+        messageId: ownerResult.messageId 
+      });
+    } catch (err) {
+      ownerError = err;
+      logEvent('error', 'Failed to send owner notification email', { 
+        requestId, 
+        error: err.message,
+        statusCode: err.statusCode
+      });
+    }
+
+    // Send auto-reply to submitter
+    try {
+      thankYouResult = await tranEmailApi.sendTransacEmail({
+        sender: { email: COMPANY_EMAIL, name: COMPANY_NAME },
+        to: [{ email: sanitizedData.email, name: sanitizedData.name }],
+        subject: `Thanks for Reaching Out to ${COMPANY_NAME}!`,
+        htmlContent: thankYouEmailHtml({ name: sanitizedData.name }),
+      });
+      logEvent('info', 'Thank you email sent', { 
+        requestId, 
+        messageId: thankYouResult.messageId 
+      });
+    } catch (err) {
+      thankYouError = err;
+      logEvent('error', 'Failed to send thank you email', { 
+        requestId, 
+        error: err.message,
+        statusCode: err.statusCode
+      });
+    }
+
+    // Determine response based on results
+    if (ownerError && thankYouError) {
+      logEvent('error', 'Both emails failed to send', { 
+        requestId, 
+        ownerError: ownerError.message,
+        thankYouError: thankYouError.message
+      });
+      return res.status(500).json({ 
+        success: false,
+        error: 'Unable to send emails. Please try again later or contact us directly.' 
+      });
+    } else if (ownerError) {
+      logEvent('warn', 'Owner notification failed, but thank you email sent', { 
+        requestId, 
+        ownerError: ownerError.message,
+        thankYouMessageId: thankYouResult?.messageId
+      });
+      return res.status(200).json({
+        success: true,
+        message: 'Thank you email sent. We received your message.',
+        thankYouEmailId: thankYouResult?.messageId,
+        warning: 'Notification email failed, but your message was received.'
+      });
+    } else if (thankYouError) {
+      logEvent('warn', 'Thank you email failed, but owner notification sent', { 
+        requestId, 
+        thankYouError: thankYouError.message,
+        ownerMessageId: ownerResult?.messageId
+      });
+      return res.status(200).json({
+        success: true,
+        message: 'We received your message and will respond soon.',
+        ownerEmailId: ownerResult?.messageId,
+        warning: 'Confirmation email failed, but your message was received.'
+      });
+    } else {
+      logEvent('info', 'Both emails sent successfully', { 
+        requestId, 
+        ownerMessageId: ownerResult?.messageId,
+        thankYouMessageId: thankYouResult?.messageId
+      });
+      return res.status(200).json({
+        success: true,
+        message: 'Emails sent successfully',
+        ownerEmailId: ownerResult?.messageId,
+        thankYouEmailId: thankYouResult?.messageId,
+      });
+    }
+
   } catch (error) {
-    // Log and respond with error
-    console.error('Brevo email error:', error);
-    return res.status(500).json({ error: 'Failed to send email' });
+    logEvent('error', 'Unexpected error in contact form handler', { 
+      requestId, 
+      error: error.message,
+      stack: error.stack,
+      type: error.constructor.name
+    });
+    
+    return res.status(500).json({ 
+      success: false,
+      error: 'An unexpected error occurred. Please try again later.' 
+    });
   }
 }; 

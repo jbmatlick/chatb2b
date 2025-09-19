@@ -14,6 +14,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Handle input changes
   const handleChange = (e) => {
@@ -30,33 +31,99 @@ const Contact = () => {
     setIsSubmitting(true);
     setShowSuccess(false);
     setShowError(false);
+    setErrorMessage('');
+    
+    // Log form submission attempt
+    console.log('📧 Contact form submission started:', {
+      timestamp: new Date().toISOString(),
+      formData: { ...formData, message: formData.message.substring(0, 50) + '...' }, // Truncate message for privacy
+      userAgent: navigator.userAgent,
+      url: window.location.href
+    });
+
     try {
-      console.log('Submitting formData:', formData);
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      console.log('API response status:', res.status);
+      
+      console.log('📡 API response received:', {
+        status: res.status,
+        statusText: res.statusText,
+        headers: Object.fromEntries(res.headers.entries())
+      });
+
       let data;
       try {
         data = await res.json();
-        console.log('API response body:', data);
+        console.log('📄 API response data:', data);
       } catch (jsonErr) {
-        console.log('Failed to parse JSON response:', jsonErr);
+        console.error('❌ Failed to parse JSON response:', jsonErr);
+        throw new Error('Server returned invalid response format');
       }
+
       if (res.ok && data && data.success) {
+        console.log('✅ Form submission successful');
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 5000);
         setFormData({ name: '', company: '', email: '', message: '' });
       } else {
+        // Handle specific error cases
+        let errorMsg = 'Something went wrong. Please try again.';
+        
+        if (res.status === 400) {
+          errorMsg = 'Please check your information and try again.';
+        } else if (res.status === 429) {
+          errorMsg = 'Too many requests. Please wait a moment and try again.';
+        } else if (res.status === 500) {
+          errorMsg = 'Server error. Please try again later or contact us directly.';
+        } else if (res.status === 503) {
+          errorMsg = 'Service temporarily unavailable. Please try again later.';
+        } else if (data && data.error) {
+          errorMsg = data.error;
+        } else if (res.status >= 400 && res.status < 500) {
+          errorMsg = 'There was a problem with your request. Please check your information.';
+        } else if (res.status >= 500) {
+          errorMsg = 'Server error. Please try again later.';
+        }
+
+        console.error('❌ Form submission failed:', {
+          status: res.status,
+          error: data?.error || 'Unknown error',
+          message: errorMsg
+        });
+
+        setErrorMessage(errorMsg);
         setShowError(true);
-        setTimeout(() => setShowError(false), 5000);
+        setTimeout(() => {
+          setShowError(false);
+          setErrorMessage('');
+        }, 8000);
       }
     } catch (err) {
-      console.error('Form submission error:', err);
+      console.error('❌ Form submission error:', {
+        error: err.message,
+        stack: err.stack,
+        timestamp: new Date().toISOString()
+      });
+
+      let errorMsg = 'Network error. Please check your connection and try again.';
+      
+      if (err.message.includes('Failed to fetch')) {
+        errorMsg = 'Unable to connect to server. Please check your internet connection.';
+      } else if (err.message.includes('timeout')) {
+        errorMsg = 'Request timed out. Please try again.';
+      } else if (err.message) {
+        errorMsg = err.message;
+      }
+
+      setErrorMessage(errorMsg);
       setShowError(true);
-      setTimeout(() => setShowError(false), 5000);
+      setTimeout(() => {
+        setShowError(false);
+        setErrorMessage('');
+      }, 8000);
     } finally {
       setIsSubmitting(false);
     }
@@ -90,7 +157,7 @@ const Contact = () => {
           >
             {showSuccess
               ? "Thanks! Your message is sent—we've emailed you a confirmation."
-              : "Oops, something went wrong—try again."}
+              : errorMessage || "Oops, something went wrong—try again."}
           </div>
         )}
 

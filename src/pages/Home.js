@@ -47,7 +47,7 @@ const Home = () => {
               Say goodbye to biased reviews and manual evaluations. Our AI agent crawls features in real-time, automates demos, and benchmarks contracts for transparent, efficient decisions.
             </p>
             <p className="text-lg text-white/70 mb-8 italic">
-              The trustworthy alternative to G2 and Gartner.
+              The future of transparent software procurement.
             </p>
             <Link
               to="/product"
