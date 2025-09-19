@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import coralBg from '../assets/contact-coral.jpg';
 
 const Admin = () => {
-  const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     // In production, you'd fetch from your database
@@ -34,28 +32,10 @@ const Admin = () => {
         <div className="glass-card p-8">
           {loading ? (
             <div className="text-center text-white/80">Loading submissions...</div>
-          ) : error ? (
-            <div className="text-center text-red-400">Error: {error}</div>
-          ) : submissions.length === 0 ? (
+          ) : (
             <div className="text-center text-white/80">
               <p>No submissions yet.</p>
               <p className="text-sm mt-2">Submissions will appear here when the contact form is used.</p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {submissions.map((submission) => (
-                <div key={submission.id} className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/30">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold text-white">{submission.name}</h3>
-                    <span className="text-sm text-white/70">{new Date(submission.timestamp).toLocaleDateString()}</span>
-                  </div>
-                  <p className="text-white/80 mb-2"><strong>Email:</strong> {submission.email}</p>
-                  {submission.company && (
-                    <p className="text-white/80 mb-2"><strong>Company:</strong> {submission.company}</p>
-                  )}
-                  <p className="text-white/80"><strong>Message:</strong> {submission.message}</p>
-                </div>
-              ))}
             </div>
           )}
         </div>

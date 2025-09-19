@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { COMPANY_NAME, COMPANY_APP_URL } from '../constants';
+import { COMPANY_NAME } from '../constants';
 
 // Responsive glassmorphic navbar with sticky positioning and mobile overlay
 const Navbar = () => {

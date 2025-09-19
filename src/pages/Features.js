@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import coralBg from '../assets/contact-coral.jpg';
-import { COMPANY_NAME, COMPANY_APP_URL, COMPANY_EMAIL } from '../constants';
+import { COMPANY_NAME } from '../constants';
 import { 
   ChartBarIcon, 
   CpuChipIcon, 
