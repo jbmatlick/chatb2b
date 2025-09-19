@@ -20,6 +20,15 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
+// Test API endpoint
+app.get('/api/test', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Test API endpoint is working!',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Serve React app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
