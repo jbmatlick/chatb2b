@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "test:unit": "jest __tests__/contact-form.test.js",
     "test:integration": "node test-airtable.js",
+    "test:api": "curl -X POST http://localhost:3001/api/send-email -H \"Content-Type: application/json\" -d '{\"name\":\"Test User\",\"email\":\"test@example.com\",\"company\":\"Test Company\",\"message\":\"API test message\"}'",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "lint": "eslint src/ --ext .js,.jsx",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.1",
     "autoprefixer": "^10.4.14",
+    "axios": "^1.12.2",
     "babel-loader": "^10.0.0",
     "html-webpack-plugin": "^5.6.3",
     "jest": "^27.5.1",
