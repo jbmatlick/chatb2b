@@ -46,7 +46,7 @@
     ]
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.1",
