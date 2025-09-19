@@ -1,6 +1,6 @@
 {
   "short_name": "RiptideB2B",
-  "name": "RiptideB2B: The agent that turns your ads into sales",
+  "name": "RiptideB2B: AI-Powered Procurement Intelligence",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#0284c7",
   "background_color": "#f0f9ff",
-  "description": "RiptideB2B: Autonomous ad agent for marketers. Transform your advertising with intelligent, agentic-first platform that converts your ads into actual sales."
+  "description": "RiptideB2B: AI-driven B2B software procurement intelligence platform. Unbiased, real-time software evaluation, AI procurement agents, and contract benchmarking for transparent, efficient decisions."
 }

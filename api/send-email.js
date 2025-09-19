@@ -5,6 +5,7 @@ require('dotenv').config({ path: './env.local' });
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 const fs = require('fs');
 const path = require('path');
+const Airtable = require('airtable');
 
 // Company branding constants
 const COMPANY_NAME = 'RiptideB2B';
@@ -23,6 +24,21 @@ const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 const apiKey = process.env.BREVO_API_KEY;
 const ownerEmail = process.env.OWNER_EMAIL || 'your@email.com'; // Set this in env.local or Vercel env vars
 
+// Set up Airtable configuration
+const airtableToken = process.env.AIRTABLE_API_TOKEN;
+const airtableBaseId = process.env.AIRTABLE_BASE_ID;
+const airtableTableName = process.env.AIRTABLE_TABLE_NAME;
+
+// Initialize Airtable
+let airtable;
+if (airtableToken && airtableBaseId && airtableTableName) {
+  Airtable.configure({
+    endpointUrl: 'https://api.airtable.com',
+    apiKey: airtableToken
+  });
+  airtable = Airtable.base(airtableBaseId);
+}
+
 // Enhanced logging function
 function logEvent(level, message, data = {}) {
   const timestamp = new Date().toISOString();
@@ -39,8 +55,63 @@ function logEvent(level, message, data = {}) {
   // For now, we'll just use console.log which Vercel captures
 }
 
-// Store form submission to JSON file
-function storeSubmission(formData, requestId) {
+// Store form submission to Airtable
+async function storeSubmissionInAirtable(formData, requestId) {
+  if (!airtable || !airtableTableName) {
+    logEvent('warn', 'Airtable not configured, skipping database storage', { requestId });
+    return null;
+  }
+
+  try {
+    const submissionData = {
+      'Lead Name': formData.name,
+      'Email Address': formData.email,
+      'Company': formData.company || '',
+      'Message': formData.message,
+      'Status': 'New',
+      'Phone Number': '' // Empty since we don't collect phone in the form
+      // Note: 'Create Date' is computed automatically by Airtable
+    };
+
+    logEvent('info', 'Storing submission in Airtable', { 
+      requestId, 
+      tableName: airtableTableName,
+      data: {
+        name: submissionData['Lead Name'],
+        email: submissionData['Email Address'],
+        company: submissionData.Company,
+        messageLength: submissionData.Message.length
+      }
+    });
+
+    const record = await airtable(airtableTableName).create(submissionData);
+    
+    logEvent('info', 'Successfully stored submission in Airtable', { 
+      requestId, 
+      recordId: record.id,
+      tableName: airtableTableName
+    });
+
+    return {
+      id: record.id,
+      requestId: requestId,
+      timestamp: submissionData['Submission Date'],
+      status: 'stored_in_airtable'
+    };
+
+  } catch (error) {
+    logEvent('error', 'Failed to store submission in Airtable', { 
+      requestId, 
+      error: error.message,
+      errorType: error.constructor.name,
+      tableName: airtableTableName
+    });
+    throw error;
+  }
+}
+
+// Store form submission to JSON file (fallback for local development)
+function storeSubmissionLocally(formData, requestId) {
   try {
     const submission = {
       id: requestId,
@@ -53,8 +124,7 @@ function storeSubmission(formData, requestId) {
       status: 'new'
     };
 
-    // In production (Vercel), we can't write to files, so we'll just log it
-    // In local development, we can write to a file
+    // Only write to local file in development
     if (process.env.NODE_ENV === 'development') {
       const submissionsFile = path.join(process.cwd(), 'submissions.json');
       let submissions = [];
@@ -75,22 +145,11 @@ function storeSubmission(formData, requestId) {
       // Write back to file
       fs.writeFileSync(submissionsFile, JSON.stringify(submissions, null, 2));
       logEvent('info', 'Submission stored locally', { requestId, submissionId: submission.id });
-    } else {
-      // In production, just log the submission (you could integrate with Airtable here)
-      logEvent('info', 'Submission received (production)', { 
-        requestId, 
-        submission: {
-          name: submission.name,
-          email: submission.email,
-          company: submission.company,
-          messageLength: submission.message.length
-        }
-      });
     }
     
     return submission;
   } catch (error) {
-    logEvent('error', 'Failed to store submission', { requestId, error: error.message });
+    logEvent('error', 'Failed to store submission locally', { requestId, error: error.message });
     return null;
   }
 }
@@ -488,8 +547,19 @@ module.exports = async (req, res) => {
       message: message.trim()
     };
 
-    // Store the submission
-    const storedSubmission = storeSubmission(sanitizedData, requestId);
+    // Store the submission in Airtable
+    let storedSubmission = null;
+    try {
+      storedSubmission = await storeSubmissionInAirtable(sanitizedData, requestId);
+      // Also store locally in development for backup
+      storeSubmissionLocally(sanitizedData, requestId);
+    } catch (airtableError) {
+      logEvent('error', 'Airtable storage failed, continuing with email sending', { 
+        requestId, 
+        error: airtableError.message 
+      });
+      // Continue with email sending even if Airtable fails
+    }
 
     logEvent('info', 'Sending emails', { 
       requestId, 
