@@ -171,7 +171,7 @@ function thankYouEmailHtml({ name }) {
       <div class="wave"></div>
       <div class="content-card">
         <p>Hi <b>${name}</b>,</p>
-        <p>We've received your message and our team will dive in soon to help with your marketing goals. ${COMPANY_NAME} is your digital reef—always working beneath the surface to bring you results.</p>
+        <p>We've received your message and our team will dive in soon to help with your procurement challenges. ${COMPANY_NAME} is your AI-powered procurement intelligence platform—always working to deliver unbiased, transparent software evaluations.</p>
         <p>Questions? Just reply to this email or explore more below.</p>
         <a href="${COMPANY_SITE_URL}" class="cta">Explore ${COMPANY_NAME}</a>
       </div>
