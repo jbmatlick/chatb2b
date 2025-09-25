@@ -7,20 +7,16 @@
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "api/send-email.js",
+      "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "api/send-email.js": {
-      "runtime": "@vercel/node"
-    },
-    "api/test.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/send-email",
+      "dest": "/api/send-email"
     },
     {
       "src": "/(.*)",
