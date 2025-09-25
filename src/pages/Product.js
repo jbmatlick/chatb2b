@@ -4,24 +4,24 @@ import { COMPANY_NAME } from '../constants';
 
 const workflow = [
   {
-    step: 'Define Problem',
+    step: 'Define Your Needs',
     color: 'bg-blue-600',
-    desc: `Log in and describe your software challenge naturally. Example: "We need to optimize our CRM for better lead management and sales forecasting." ${COMPANY_NAME} interprets your requirements via NLP and maps them to procurement objectives.`,
+    desc: `Share your software requirements and business objectives. Our intelligent platform understands your unique challenges and translates them into actionable procurement goals.`,
   },
   {
-    step: 'AI Refinement',
+    step: 'Intelligent Analysis',
     color: 'bg-teal-600',
-    desc: 'Our AI agent asks targeted questions to refine your requirements, understanding stakeholder needs, budget constraints, and integration requirements. This ensures comprehensive problem definition before evaluation begins.',
+    desc: 'Our advanced AI system conducts comprehensive analysis, considering your specific requirements, budget parameters, and organizational needs to ensure optimal solution matching.',
   },
   {
-    step: 'Real-Time Analysis',
+    step: 'Dynamic Intelligence',
     color: 'bg-indigo-600',
-    desc: 'The agent analyzes vendor documentation, APIs, and UIs weekly to build dynamic feature graphs and objective scores. It aggregates real-time data and generates tailored reports with market quadrants, eliminating pay-to-play bias.',
+    desc: 'The platform continuously processes market intelligence and vendor capabilities, delivering real-time insights that adapt to changing conditions and emerging opportunities.',
   },
   {
-    step: 'Solution Delivery',
+    step: 'Deliver Results',
     color: 'bg-purple-600',
-    desc: 'Receive comprehensive solution briefs with feature comparisons, contract benchmarks, and vendor recommendations. Authorize next steps like demos or negotiations—all handled autonomously by the AI agent.',
+    desc: 'Receive comprehensive recommendations with detailed analysis and actionable insights. Our platform streamlines the entire procurement process from evaluation to implementation.',
   },
 ];
 
@@ -31,7 +31,7 @@ const Product = () => {
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="section-title">How {COMPANY_NAME} Works</h1>
-        <p className="text-lg text-white/90 mb-4">Stop worrying about biased reviews and manual evaluations. {COMPANY_NAME} handles procurement intelligence so you focus on strategic decisions.</p>
+        <p className="text-lg text-white/90 mb-4">Experience intelligent procurement automation that adapts to your needs. {COMPANY_NAME} streamlines your decision-making process so you can focus on strategic outcomes.</p>
       </section>
 
       {/* AI Procurement Workflow Section */}
@@ -55,22 +55,22 @@ const Product = () => {
         <h2 className="text-3xl font-semibold text-teal-300 mb-10 text-center">Real-World Examples</h2>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="glass-card p-10 flex flex-col gap-2">
-            <div className="font-bold text-teal-400 mb-2">CRM Software Evaluation</div>
+            <div className="font-bold text-teal-400 mb-2">Enterprise Software Evaluation</div>
             <ul className="text-white/80 mb-2 list-disc list-inside space-y-1">
-              <li>Defined requirements for "better lead management and forecasting"</li>
-              <li>AI agent analyzed 12 vendors across feature matrices</li>
-              <li>Generated unbiased comparison with contract benchmarks</li>
+              <li>Streamlined complex requirements definition</li>
+              <li>Intelligent analysis across multiple vendor options</li>
+              <li>Comprehensive comparison with market insights</li>
             </ul>
-            <div className="text-sm text-teal-300 font-semibold">Result: 6-month evaluation completed in 2 weeks, saved $200K</div>
+            <div className="text-sm text-teal-300 font-semibold">Result: Accelerated evaluation with significant time and cost savings</div>
           </div>
           <div className="glass-card p-10 flex flex-col gap-2">
-            <div className="font-bold text-teal-400 mb-2">HR Tech Procurement</div>
+            <div className="font-bold text-teal-400 mb-2">Technology Platform Procurement</div>
             <ul className="text-white/80 mb-2 list-disc list-inside space-y-1">
-              <li>Automated evaluation for "employee engagement platform"</li>
-              <li>Real-time feature scoring eliminated vendor bias</li>
-              <li>Contract intelligence revealed 30% overpricing</li>
+              <li>Automated evaluation for specialized platform needs</li>
+              <li>Objective analysis eliminating traditional biases</li>
+              <li>Market intelligence revealed optimization opportunities</li>
             </ul>
-            <div className="text-sm text-teal-300 font-semibold">Result: 3x faster decision, 25% cost reduction</div>
+            <div className="text-sm text-teal-300 font-semibold">Result: Faster decision-making with substantial cost optimization</div>
           </div>
         </div>
       </section>
@@ -81,18 +81,18 @@ const Product = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">1</div>
-            <div className="font-semibold text-teal-400 mb-2">Unbiased Intelligence</div>
-            <div className="text-white/80 text-base">Eliminate pay-to-play bias with real-time feature scoring and transparent methodology that delivers objective insights.</div>
+            <div className="font-semibold text-teal-400 mb-2">Objective Intelligence</div>
+            <div className="text-white/80 text-base">Access unbiased analysis through advanced methodologies that deliver transparent, objective insights for confident decision-making.</div>
           </div>
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">2</div>
-            <div className="font-semibold text-teal-400 mb-2">Efficiency Through AI</div>
-            <div className="text-white/80 text-base">Compress procurement cycles from months to days with autonomous AI agents that handle demos, analysis, and recommendations.</div>
+            <div className="font-semibold text-teal-400 mb-2">Intelligent Automation</div>
+            <div className="text-white/80 text-base">Accelerate procurement cycles through intelligent automation that handles complex analysis and delivers comprehensive recommendations.</div>
           </div>
           <div className="glass-card p-8 text-center flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">3</div>
             <div className="font-semibold text-teal-400 mb-2">Transparent Process</div>
-            <div className="text-white/80 text-base">Open methodology and verifiable data sources ensure complete transparency in every recommendation and decision.</div>
+            <div className="text-white/80 text-base">Comprehensive methodology and verifiable intelligence ensure complete transparency in every recommendation and decision.</div>
           </div>
         </div>
       </section>
@@ -102,9 +102,9 @@ const Product = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
         <div className="relative z-10 py-16 text-center text-white">
           <div className="glass-card inline-block px-12 py-10">
-            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Experience AI-Powered Procurement?</h2>
+            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Transform Your Procurement Process?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Stop wrestling with biased reviews. Start commanding intelligent procurement. Complexity curated, not confronted.
+              Experience intelligent procurement automation that adapts to your needs. Transform complexity into clarity with advanced AI-driven insights.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

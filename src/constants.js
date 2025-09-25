@@ -15,5 +15,5 @@ export const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SL
 export const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // Taglines and descriptions
-export const COMPANY_TAGLINE = 'AI-Powered Procurement Intelligence: Unbiased Software Evaluation and Automation';
-export const COMPANY_DESCRIPTION = 'AI-driven B2B software procurement intelligence platform. Unbiased, real-time software evaluation, AI procurement agents, feature scoring, and contract benchmarking for transparent, efficient decisions.'; 
+export const COMPANY_TAGLINE = 'AI-Powered Procurement Intelligence: Smarter Software Decisions';
+export const COMPANY_DESCRIPTION = 'Transform your software procurement with intelligent automation. Our AI-driven platform delivers transparent insights and streamlined processes for confident decision-making.'; 

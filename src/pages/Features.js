@@ -13,47 +13,47 @@ import {
 const Features = () => {
   const features = [
     {
-      icon: <ChartBarIcon className="w-12 h-12 text-blue-500" aria-label="Real-Time Feature Scoring" />,
-      title: 'Real-Time Feature Scoring',
-      description: 'AI analyzes vendor docs, APIs, and UIs weekly to build dynamic quadrants and objective scores, eliminating pay-to-play bias.',
+      icon: <ChartBarIcon className="w-12 h-12 text-blue-500" aria-label="Dynamic Intelligence" />,
+      title: 'Dynamic Intelligence',
+      description: 'Advanced AI continuously processes market data to deliver objective insights and adaptive scoring that evolves with changing conditions.',
       benefits: [
-        'Weekly feature updates across 500+ vendors',
-        'Objective scoring based on actual capabilities',
-        'Dynamic market quadrants that adapt to changes',
-        'No vendor influence or paid placements'
+        'Continuous market intelligence updates',
+        'Objective analysis based on comprehensive data',
+        'Adaptive insights that respond to market changes',
+        'Independent analysis free from external influence'
       ]
     },
     {
-      icon: <CpuChipIcon className="w-12 h-12 text-teal-500" aria-label="Autonomous Procurement Agent" />,
-      title: 'Autonomous Procurement Agent',
-      description: 'Define your problem, answer AI questions, and let the agent handle demos, emails, and solution briefs—compressing cycles from months to days.',
+      icon: <CpuChipIcon className="w-12 h-12 text-teal-500" aria-label="Intelligent Automation" />,
+      title: 'Intelligent Automation',
+      description: 'Streamline your procurement process with AI that understands your needs and automates complex evaluation workflows—transforming lengthy cycles into efficient outcomes.',
       benefits: [
-        'Natural language problem definition',
-        'Intelligent requirement refinement',
-        'Automated vendor outreach and demos',
-        'Comprehensive solution briefs'
+        'Intuitive problem definition and analysis',
+        'Intelligent requirement assessment',
+        'Automated evaluation and comparison processes',
+        'Comprehensive solution recommendations'
       ]
     },
     {
-      icon: <DocumentTextIcon className="w-12 h-12 text-indigo-500" aria-label="Contract Benchmarking" />,
-      title: 'Contract Benchmarking (Coming Soon)',
-      description: 'Anonymized peer comparisons to ensure you get the best deals, with percentile insights (e.g., "Your Salesforce contract is in the 75th percentile").',
+      icon: <DocumentTextIcon className="w-12 h-12 text-indigo-500" aria-label="Market Intelligence" />,
+      title: 'Market Intelligence (Coming Soon)',
+      description: 'Access comprehensive market insights and benchmarking data to ensure optimal decision-making and competitive positioning.',
       benefits: [
-        'Anonymized peer contract data',
-        'Percentile-based pricing insights',
-        'Renegotiation recommendations',
-        'Market rate intelligence'
+        'Comprehensive market data analysis',
+        'Benchmarking and comparison insights',
+        'Strategic recommendations for optimization',
+        'Market trend intelligence'
       ]
     },
     {
-      icon: <ShieldCheckIcon className="w-12 h-12 text-purple-500" aria-label="Open Methodology" />,
-      title: 'Open Methodology',
-      description: 'Transparent AI algorithms and data sources for verifiable trust. Every recommendation backed by explainable intelligence.',
+      icon: <ShieldCheckIcon className="w-12 h-12 text-purple-500" aria-label="Transparent Process" />,
+      title: 'Transparent Process',
+      description: 'Comprehensive methodology and verifiable intelligence for complete transparency. Every recommendation backed by explainable analysis and trusted processes.',
       benefits: [
-        'Fully transparent algorithms',
-        'Verifiable data sources',
-        'Explainable AI decisions',
-        'Open source methodology'
+        'Transparent analytical processes',
+        'Verifiable intelligence sources',
+        'Explainable decision-making',
+        'Trusted methodology'
       ]
     }
   ];
@@ -73,7 +73,7 @@ const Features = () => {
         <div className="text-center">
           <h1 className="section-title">Core Features</h1>
           <p className="text-lg text-white/80 max-w-3xl mx-auto mb-10">
-            Discover the powerful capabilities that make {COMPANY_NAME} the most trusted AI-driven procurement intelligence platform. Built for transparency, efficiency, and unbiased decision-making.
+            Discover the advanced capabilities that make {COMPANY_NAME} the leading AI-driven procurement intelligence platform. Built for transparency, efficiency, and intelligent decision-making.
           </p>
         </div>
 
@@ -104,24 +104,24 @@ const Features = () => {
 
         {/* Pricing Section */}
         <div className="glass-card p-8 text-center fade-in">
-          <h2 className="text-2xl font-semibold text-teal-300 mb-4">Simple, Transparent Pricing</h2>
+          <h2 className="text-2xl font-semibold text-teal-300 mb-4">Flexible, Transparent Pricing</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-left">
-              <h3 className="text-xl font-semibold text-white mb-3">For Buyers</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">For Organizations</h3>
               <ul className="space-y-2 text-white/80">
-                <li>• Basic access: <span className="text-teal-300 font-semibold">Free</span></li>
-                <li>• Premium agent features: <span className="text-teal-300 font-semibold">$99/user/month</span></li>
-                <li>• Contract benchmarking: <span className="text-teal-300 font-semibold">$199/user/month</span></li>
-                <li>• Custom integrations: <span className="text-teal-300 font-semibold">Contact us</span></li>
+                <li>• Basic platform access: <span className="text-teal-300 font-semibold">Complimentary</span></li>
+                <li>• Advanced intelligence features: <span className="text-teal-300 font-semibold">Competitive pricing</span></li>
+                <li>• Market intelligence tools: <span className="text-teal-300 font-semibold">Enterprise plans</span></li>
+                <li>• Custom solutions: <span className="text-teal-300 font-semibold">Contact us</span></li>
               </ul>
             </div>
             <div className="text-left">
-              <h3 className="text-xl font-semibold text-white mb-3">For Vendors</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">For Partners</h3>
               <ul className="space-y-2 text-white/80">
-                <li>• Lead subscriptions: <span className="text-teal-300 font-semibold">$500/month</span></li>
-                <li>• 50 qualified leads included</li>
-                <li>• Additional leads: <span className="text-teal-300 font-semibold">$10 each</span></li>
-                <li>• Premium placement: <span className="text-teal-300 font-semibold">$2,000/month</span></li>
+                <li>• Platform participation: <span className="text-teal-300 font-semibold">Subscription-based</span></li>
+                <li>• Qualified opportunity access</li>
+                <li>• Enhanced visibility options</li>
+                <li>• Premium placement opportunities</li>
               </ul>
             </div>
           </div>
@@ -131,7 +131,7 @@ const Features = () => {
         <div className="glass-card p-8 text-center fade-in">
           <h2 className="text-2xl font-semibold text-teal-300 mb-4">Ready to Transform Your Procurement?</h2>
           <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-            Join hundreds of procurement professionals who've already streamlined their software evaluation process with AI-powered intelligence.
+            Join forward-thinking organizations that are transforming their procurement processes with intelligent automation and advanced insights.
           </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

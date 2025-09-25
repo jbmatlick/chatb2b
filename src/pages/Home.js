@@ -8,20 +8,20 @@ const advantageData = [
   {
     icon: <ClockIcon className="w-8 h-8 text-blue-500" aria-label="Time Savings" />,
     benefit: 'Time Savings',
-    traditional: 'Months of manual evaluation',
-    contactTsunami: 'Days with AI automation',
+    traditional: 'Lengthy evaluation cycles',
+    contactTsunami: 'Accelerated decision-making',
   },
   {
     icon: <ArrowTrendingUpIcon className="w-8 h-8 text-teal-500" aria-label="Unbiased Intelligence" />,
     benefit: 'Unbiased Intelligence',
-    traditional: 'Pay-to-play reviews',
-    contactTsunami: 'Real-time feature scoring',
+    traditional: 'Influenced recommendations',
+    contactTsunami: 'Objective insights',
   },
   {
     icon: <SparklesIcon className="w-8 h-8 text-indigo-500" aria-label="Transparent Process" />,
     benefit: 'Transparent Process',
-    traditional: 'Black box decisions',
-    contactTsunami: 'Open methodology',
+    traditional: 'Opaque methodologies',
+    contactTsunami: 'Clear methodology',
   },
 ];
 
@@ -41,13 +41,13 @@ const Home = () => {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="glass-card p-12 md:p-16 fade-in">
             <h1 className="section-title">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">Revolutionize B2B Software Procurement with AI-Driven Intelligence</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">Transform Software Procurement with Intelligent Automation</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              Say goodbye to biased reviews and manual evaluations. Our AI agent analyzes features in real-time, automates demos, and benchmarks contracts for transparent, efficient decisions.
+              Experience a new era of procurement intelligence. Our advanced platform streamlines your decision-making process with unprecedented transparency and efficiency.
             </p>
             <p className="text-lg text-white/70 mb-8 italic">
-              The future of transparent software procurement.
+              Where intelligence meets procurement excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -77,13 +77,13 @@ const Home = () => {
           <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why {COMPANY_NAME}?</h2>
           <div className="space-y-6">
             <p className="text-lg text-white/80 leading-relaxed">
-              Tired of biased reviews and months-long evaluations? {COMPANY_NAME} delivers transparent, AI-powered procurement intelligence that actually works.
+              Experience procurement intelligence that transforms how you make software decisions. {COMPANY_NAME} delivers unprecedented transparency and efficiency.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              This isn't another review site—it's your intelligent procurement agent. Define problems, not requirements. Get solutions, not sales pitches.
+              Our intelligent platform adapts to your unique requirements, delivering insights that drive confident decision-making without compromise.
             </p>
             <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
-              Your needs. Our intelligence. Pure transparency.
+              Your vision. Our intelligence. Unmatched results.
             </p>
           </div>
         </div>
@@ -117,17 +117,17 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass-card flex flex-col items-center p-8 fade-in">
               <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0ea5e9&color=fff" alt="Avatar of Sarah Chen" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"{COMPANY_NAME} cut our CRM evaluation time from 6 months to 2 weeks. The AI agent found features we never knew existed and saved us $200K in licensing costs."</blockquote>
+              <blockquote className="italic text-white/90 mb-4">"{COMPANY_NAME} transformed our software evaluation process. We achieved significant time savings and cost reductions while gaining confidence in our decisions."</blockquote>
               <div className="font-bold text-teal-300">Sarah Chen<br /><span className="font-normal text-white/70">VP of IT, TechForge Solutions</span></div>
             </div>
             <div className="glass-card flex flex-col items-center p-8 fade-in">
               <img src="https://ui-avatars.com/api/?name=Mike+Rodriguez&background=0ea5e9&color=fff" alt="Avatar of Mike Rodriguez" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"Finally, unbiased software intelligence. No more vendor influence or pay-to-play reviews. The real-time feature scoring gives us confidence in our decisions."</blockquote>
+              <blockquote className="italic text-white/90 mb-4">"Finally, procurement intelligence we can trust. The platform delivers objective insights that give us complete confidence in our software decisions."</blockquote>
               <div className="font-bold text-teal-300">Mike Rodriguez<br /><span className="font-normal text-white/70">Procurement Director, InnovateBrands</span></div>
             </div>
             <div className="glass-card flex flex-col items-center p-8 fade-in">
               <img src="https://ui-avatars.com/api/?name=Elena+Vasquez&background=0ea5e9&color=fff" alt="Avatar of Elena Vasquez" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"The contract benchmarking feature is a game-changer. We discovered our Salesforce contract was 30% above market rate and renegotiated immediately."</blockquote>
+              <blockquote className="italic text-white/90 mb-4">"The platform's intelligent insights revealed optimization opportunities we never knew existed. It's revolutionized how we approach software procurement."</blockquote>
               <div className="font-bold text-teal-300">Elena Vasquez<br /><span className="font-normal text-white/70">CFO, GlobalReach Inc.</span></div>
             </div>
           </div>
@@ -137,19 +137,19 @@ const Home = () => {
       {/* About/Vision Section */}
       <section className="py-16 fade-in">
         <div className="glass-card w-full max-w-4xl mx-auto py-12 px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Our Mission: Disrupting B2B Procurement with AI Neutrality</h2>
+          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Our Mission: Transforming Procurement Through Intelligent Innovation</h2>
           <div className="space-y-6 text-left">
             <p className="text-lg text-white/80 leading-relaxed">
-              {COMPANY_NAME} is disrupting B2B procurement with AI neutrality. Our mission: Democratize software evaluation, restoring trust in a market riddled with corruption and pay-to-play bias.
+              {COMPANY_NAME} is revolutionizing B2B procurement through advanced AI technology. Our mission: Empower organizations with intelligent tools that deliver transparent, efficient software evaluation processes.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              We believe procurement decisions should be based on objective data, not vendor influence. Our AI agents analyze real-time feature data, eliminate bias, and deliver transparent intelligence that procurement teams can trust.
+              We believe procurement decisions should be driven by objective intelligence and comprehensive analysis. Our platform delivers sophisticated insights that procurement teams can trust and act upon with confidence.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              Long-term vision: Replace static analyst reports with dynamic, Wall Street-ready intelligence that adapts to market changes and delivers real value to procurement professionals.
+              Our vision: Create the next generation of procurement intelligence that adapts to evolving market dynamics and delivers exceptional value to organizations worldwide.
             </p>
             <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
-              The future of procurement is transparent, efficient, and AI-powered.
+              The future of procurement is intelligent, transparent, and results-driven.
             </p>
           </div>
         </div>
@@ -160,9 +160,9 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
         <div className="relative z-10 py-16 text-center text-white">
           <div className="glass-card inline-block px-12 py-10">
-            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Streamline Your Procurement?</h2>
+            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Transform Your Procurement?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Tired of biased reviews and months-long evaluations? What if you could define your problem and let an intelligent agent handle the rest—delivering transparent, data-driven recommendations? Transform your procurement process with {COMPANY_NAME}. It's efficient, unbiased, and built for real results.
+              Experience the future of procurement intelligence. Our platform streamlines your decision-making process with advanced automation and transparent insights. Transform your procurement approach with {COMPANY_NAME}—where intelligence meets efficiency.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
