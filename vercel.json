@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "chatb2b-coming-soon",
   "builds": [
     {
       "src": "package.json",
@@ -31,13 +30,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "functions": {
-    "api/send-email.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }

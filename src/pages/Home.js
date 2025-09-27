@@ -55,9 +55,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header - Fixed top bar */}
+      {/* Header - Fixed top bar with more padding */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <div className="flex items-center justify-center">
             <h1 className="text-2xl md:text-3xl font-bold text-white">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
@@ -68,8 +68,8 @@ const Home = () => {
         </div>
       </header>
 
-      {/* Main Content - Full viewport centered */}
-      <main className="flex-1 flex items-center justify-center relative overflow-hidden">
+      {/* Main Content - Full viewport centered with more top padding */}
+      <main className="flex-1 flex items-center justify-center relative overflow-hidden pt-20 sm:pt-24">
         {/* Background with oceanic theme */}
         <div className="absolute inset-0 bg-gradient-to-br from-ocean-900/20 to-ocean-600/20"></div>
         <div className="absolute inset-0 reef-pattern opacity-10"></div>
@@ -81,26 +81,26 @@ const Home = () => {
         <div className="absolute top-60 left-1/2 w-8 h-8 bg-cyan-400/20 rounded-full wave-float" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-60 right-10 w-14 h-14 bg-blue-300/20 rounded-full wave-float" style={{animationDelay: '3s'}}></div>
 
-        {/* Centered hero content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Centered hero content with more spacing */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12">
           <div className="glass-card p-8 md:p-12 lg:p-16 fade-in">
-            {/* Main headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            {/* Main headline with more bottom margin */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 sm:mb-10 leading-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
                 Chat with Your Procurement Agent
               </span>
             </h1>
 
-            {/* Subtext */}
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-8 max-w-4xl mx-auto">
+            {/* Subtext with more spacing */}
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-8 sm:mb-10 max-w-4xl mx-auto">
               Revolutionize B2B software procurement through conversational AI—transparent, unbiased, and efficient. 
-              <span className="block mt-2 text-teal-300 font-semibold">
+              <span className="block mt-3 sm:mt-4 text-teal-300 font-semibold">
                 Secure early access to ChatB2B and transform your buying process.
               </span>
             </p>
 
-            {/* Coming Soon Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30 rounded-full px-6 py-3 mb-8">
+            {/* Coming Soon Badge with more margin */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30 rounded-full px-6 py-3 mb-10 sm:mb-12">
               <ClockIcon className="w-5 h-5 text-teal-300" />
               <span className="text-teal-300 font-semibold">Coming Soon</span>
             </div>
@@ -108,7 +108,7 @@ const Home = () => {
             {/* Email signup form */}
             <div className="max-w-md mx-auto">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div className="relative">
                     <label htmlFor="email" className="sr-only">
                       Email address
@@ -153,11 +153,11 @@ const Home = () => {
                   </button>
                 </form>
               ) : (
-                <div className="text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/20 rounded-full mb-4">
+                <div className="text-center space-y-4 sm:space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/20 rounded-full mb-4 sm:mb-6">
                     <ChatBubbleLeftRightIcon className="w-8 h-8 text-teal-300" />
                   </div>
-                  <h3 className="text-2xl font-bold text-teal-300 mb-2">Thank You!</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-teal-300 mb-2 sm:mb-3">Thank You!</h3>
                   <p className="text-white/80 text-lg">
                     We'll notify you as soon as ChatB2B launches.
                   </p>
@@ -165,8 +165,8 @@ const Home = () => {
               )}
             </div>
 
-            {/* Trust indicators */}
-            <div className="mt-12 pt-8 border-t border-white/20">
+            {/* Trust indicators with more top margin */}
+            <div className="mt-16 sm:mt-20 pt-8 border-t border-white/20">
               <p className="text-white/60 text-sm mb-4">Trusted by procurement professionals worldwide</p>
               <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
                 <div className="text-white/40 font-semibold">Enterprise Ready</div>
@@ -179,8 +179,8 @@ const Home = () => {
         </div>
       </main>
 
-      {/* Footer - Minimal bottom section */}
-      <footer className="relative z-10 py-6 text-center">
+      {/* Footer - Minimal bottom section with more padding */}
+      <footer className="relative z-10 py-8 sm:py-10 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-white/60 text-sm">
             © 2025 ChatB2B. All rights reserved.
