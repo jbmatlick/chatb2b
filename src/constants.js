@@ -1,7 +1,7 @@
 // Company branding constants for easy rebranding
-export const COMPANY_NAME = 'RiptideB2B';
+export const COMPANY_NAME = 'ChatB2B';
 export const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
-export const COMPANY_EMAIL = `sales@${COMPANY_SLUG}.com`;
+export const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
 export const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
 export const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 export const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
@@ -15,5 +15,5 @@ export const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/assets/${COMPANY_SL
 export const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // Taglines and descriptions
-export const COMPANY_TAGLINE = 'AI-Powered Procurement Intelligence: Smarter Software Decisions';
-export const COMPANY_DESCRIPTION = 'Transform your software procurement with intelligent automation. Our AI-driven platform delivers transparent insights and streamlined processes for confident decision-making.'; 
+export const COMPANY_TAGLINE = 'Chat with Your Procurement Agent: Conversational AI for B2B Software Procurement';
+export const COMPANY_DESCRIPTION = 'Revolutionize B2B software procurement through conversational AI—transparent, unbiased, and efficient. Secure early access to ChatB2B and transform your buying process.'; 

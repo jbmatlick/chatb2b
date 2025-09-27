@@ -1,189 +1,201 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import heroReef from '../assets/hero-reef.jpg';
-import { ClockIcon, ArrowTrendingUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
-import { COMPANY_NAME } from '../constants';
-
-const advantageData = [
-  {
-    icon: <ClockIcon className="w-8 h-8 text-blue-500" aria-label="Time Savings" />,
-    benefit: 'Time Savings',
-    traditional: 'Lengthy evaluation cycles',
-    contactTsunami: 'Accelerated decision-making',
-  },
-  {
-    icon: <ArrowTrendingUpIcon className="w-8 h-8 text-teal-500" aria-label="Unbiased Intelligence" />,
-    benefit: 'Unbiased Intelligence',
-    traditional: 'Influenced recommendations',
-    contactTsunami: 'Objective insights',
-  },
-  {
-    icon: <SparklesIcon className="w-8 h-8 text-indigo-500" aria-label="Transparent Process" />,
-    benefit: 'Transparent Process',
-    traditional: 'Opaque methodologies',
-    contactTsunami: 'Clear methodology',
-  },
-];
+import React, { useState, useEffect } from 'react';
+import { ChatBubbleLeftRightIcon, SparklesIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const Home = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Handle email input change
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setIsValidEmail(value === '' || emailRegex.test(value));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!emailRegex.test(email)) {
+      setIsValidEmail(false);
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Log email to console as requested
+    console.log(`Email submitted: ${email}`);
+    
+    // Show success state
+    setIsSubmitted(true);
+    setEmail('');
+    setIsLoading(false);
+    
+    // Reset success state after 5 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
+  };
+
+  // Fade-in animation on mount
+  useEffect(() => {
+    document.body.classList.add('fade-in');
+    return () => {
+      document.body.classList.remove('fade-in');
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${heroReef})`,
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 to-teal-700/60"></div>
-        <div className="absolute inset-0 reef-pattern opacity-10"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card p-12 md:p-16 fade-in">
-            <h1 className="section-title">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">Transform Software Procurement with Intelligent Automation</span>
+    <div className="min-h-screen flex flex-col">
+      {/* Header - Fixed top bar */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg border-b border-white/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-center">
+            <h1 className="text-2xl md:text-3xl font-bold text-white">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+                ChatB2B
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              Experience a new era of procurement intelligence. Our advanced platform streamlines your decision-making process with unprecedented transparency and efficiency.
-            </p>
-            <p className="text-lg text-white/70 mb-8 italic">
-              Where intelligence meets procurement excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/product"
-                className="btn-accent text-lg"
-              >
-                Start Your Free Evaluation
-              </Link>
-              <Link
-                to="/contact"
-                className="btn-accent text-lg"
-              >
-                Contact Us to Learn More
-              </Link>
-            </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-200/50 via-blue-100/30 to-transparent"></div>
+      </header>
+
+      {/* Main Content - Full viewport centered */}
+      <main className="flex-1 flex items-center justify-center relative overflow-hidden">
+        {/* Background with oceanic theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-ocean-900/20 to-ocean-600/20"></div>
+        <div className="absolute inset-0 reef-pattern opacity-10"></div>
+        
+        {/* Floating wave elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full wave-float"></div>
         <div className="absolute top-40 right-20 w-16 h-16 bg-teal-400/20 rounded-full wave-float" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-40 left-20 w-12 h-12 bg-indigo-400/20 rounded-full wave-float" style={{animationDelay: '4s'}}></div>
-      </section>
+        <div className="absolute top-60 left-1/2 w-8 h-8 bg-cyan-400/20 rounded-full wave-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-60 right-10 w-14 h-14 bg-blue-300/20 rounded-full wave-float" style={{animationDelay: '3s'}}></div>
 
-      {/* Why Company? Section */}
-      <section className="relative flex flex-col items-center justify-center py-16">
-        <div className="glass-card w-full max-w-3xl mx-auto py-12 px-6 md:px-12 text-center fade-in">
-          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Why {COMPANY_NAME}?</h2>
-          <div className="space-y-6">
-            <p className="text-lg text-white/80 leading-relaxed">
-              Experience procurement intelligence that transforms how you make software decisions. {COMPANY_NAME} delivers unprecedented transparency and efficiency.
+        {/* Centered hero content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="glass-card p-8 md:p-12 lg:p-16 fade-in">
+            {/* Main headline */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+                Chat with Your Procurement Agent
+              </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-8 max-w-4xl mx-auto">
+              Revolutionize B2B software procurement through conversational AI—transparent, unbiased, and efficient. 
+              <span className="block mt-2 text-teal-300 font-semibold">
+                Secure early access to ChatB2B and transform your buying process.
+              </span>
             </p>
-            <p className="text-lg text-white/80 leading-relaxed">
-              Our intelligent platform adapts to your unique requirements, delivering insights that drive confident decision-making without compromise.
-            </p>
-            <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
-              Your vision. Our intelligence. Unmatched results.
-            </p>
+
+            {/* Coming Soon Badge */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30 rounded-full px-6 py-3 mb-8">
+              <ClockIcon className="w-5 h-5 text-teal-300" />
+              <span className="text-teal-300 font-semibold">Coming Soon</span>
+            </div>
+
+            {/* Email signup form */}
+            <div className="max-w-md mx-auto">
+              {!isSubmitted ? (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="relative">
+                    <label htmlFor="email" className="sr-only">
+                      Email address
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={handleEmailChange}
+                      placeholder="Enter your email address"
+                      className={`w-full px-6 py-4 rounded-full bg-white/10 border-2 border-white/30 focus:border-teal-400 focus:outline-none text-white placeholder-white/60 transition-all duration-300 focus-oceanic ${
+                        !isValidEmail ? 'border-red-400 focus:border-red-400' : ''
+                      }`}
+                      aria-label="Email address for early access notification"
+                      aria-invalid={!isValidEmail}
+                      aria-describedby={!isValidEmail ? 'email-error' : undefined}
+                    />
+                    {!isValidEmail && (
+                      <p id="email-error" className="text-red-400 text-sm mt-2 text-left" role="alert">
+                        Please enter a valid email address
+                      </p>
+                    )}
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isLoading || !email || !isValidEmail}
+                    className="w-full btn-accent text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    aria-label="Notify me when ChatB2B launches"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <SparklesIcon className="w-5 h-5" />
+                        Notify Me
+                      </>
+                    )}
+                  </button>
+                </form>
+              ) : (
+                <div className="text-center space-y-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/20 rounded-full mb-4">
+                    <ChatBubbleLeftRightIcon className="w-8 h-8 text-teal-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-teal-300 mb-2">Thank You!</h3>
+                  <p className="text-white/80 text-lg">
+                    We'll notify you as soon as ChatB2B launches.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Trust indicators */}
+            <div className="mt-12 pt-8 border-t border-white/20">
+              <p className="text-white/60 text-sm mb-4">Trusted by procurement professionals worldwide</p>
+              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                <div className="text-white/40 font-semibold">Enterprise Ready</div>
+                <div className="text-white/40 font-semibold">GDPR Compliant</div>
+                <div className="text-white/40 font-semibold">SOC 2 Certified</div>
+                <div className="text-white/40 font-semibold">24/7 Support</div>
+              </div>
+            </div>
           </div>
         </div>
-        {/* Wave divider between major sections */}
-      </section>
+      </main>
 
-      {/* The Company Advantage Section (Card-based) */}
-              <section aria-label={COMPANY_NAME} Advantage className="py-16">
-        <div className="grid gap-8 md:grid-cols-3">
-          {advantageData.map((item, idx) => (
-            <div
-              key={item.benefit}
-              className="glass-card flex flex-col items-center p-8 space-y-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:scale-105 focus:shadow-xl outline-none"
-              tabIndex={0}
-              aria-label={item.benefit}
+      {/* Footer - Minimal bottom section */}
+      <footer className="relative z-10 py-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-white/60 text-sm">
+            © 2025 ChatB2B. All rights reserved.
+          </p>
+          <p className="text-white/40 text-xs mt-2">
+            <a 
+              href="/privacy" 
+              className="hover:text-white/60 transition-colors duration-200"
+              aria-label="Privacy Policy"
             >
-              <div className="mb-2">{item.icon}</div>
-              <div className="font-bold text-lg text-teal-400 mb-1">{item.benefit}</div>
-              <div className="text-white/70 text-sm mb-1">{item.traditional}</div>
-              <div className="text-teal-400 font-bold text-base">{item.contactTsunami}</div>
-            </div>
-          ))}
+              Privacy Policy
+            </a>
+          </p>
         </div>
-      </section>
-
-      {/* --- Testimonials Section --- */}
-      <section className="py-16 fade-in">
-        <h2 className="section-title mb-4">What Our Users Say</h2>
-        <p className="text-white/80 text-lg text-center mb-10 max-w-2xl mx-auto">Hear from procurement professionals who've transformed their software evaluation process with {COMPANY_NAME}.</p>
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass-card flex flex-col items-center p-8 fade-in">
-              <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0ea5e9&color=fff" alt="Avatar of Sarah Chen" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"{COMPANY_NAME} transformed our software evaluation process. We achieved significant time savings and cost reductions while gaining confidence in our decisions."</blockquote>
-              <div className="font-bold text-teal-300">Sarah Chen<br /><span className="font-normal text-white/70">VP of IT, TechForge Solutions</span></div>
-            </div>
-            <div className="glass-card flex flex-col items-center p-8 fade-in">
-              <img src="https://ui-avatars.com/api/?name=Mike+Rodriguez&background=0ea5e9&color=fff" alt="Avatar of Mike Rodriguez" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"Finally, procurement intelligence we can trust. The platform delivers objective insights that give us complete confidence in our software decisions."</blockquote>
-              <div className="font-bold text-teal-300">Mike Rodriguez<br /><span className="font-normal text-white/70">Procurement Director, InnovateBrands</span></div>
-            </div>
-            <div className="glass-card flex flex-col items-center p-8 fade-in">
-              <img src="https://ui-avatars.com/api/?name=Elena+Vasquez&background=0ea5e9&color=fff" alt="Avatar of Elena Vasquez" className="w-16 h-16 rounded-full mb-4" />
-              <blockquote className="italic text-white/90 mb-4">"The platform's intelligent insights revealed optimization opportunities we never knew existed. It's revolutionized how we approach software procurement."</blockquote>
-              <div className="font-bold text-teal-300">Elena Vasquez<br /><span className="font-normal text-white/70">CFO, GlobalReach Inc.</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About/Vision Section */}
-      <section className="py-16 fade-in">
-        <div className="glass-card w-full max-w-4xl mx-auto py-12 px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-semibold text-teal-300 mb-6">Our Mission: Transforming Procurement Through Intelligent Innovation</h2>
-          <div className="space-y-6 text-left">
-            <p className="text-lg text-white/80 leading-relaxed">
-              {COMPANY_NAME} is revolutionizing B2B procurement through advanced AI technology. Our mission: Empower organizations with intelligent tools that deliver transparent, efficient software evaluation processes.
-            </p>
-            <p className="text-lg text-white/80 leading-relaxed">
-              We believe procurement decisions should be driven by objective intelligence and comprehensive analysis. Our platform delivers sophisticated insights that procurement teams can trust and act upon with confidence.
-            </p>
-            <p className="text-lg text-white/80 leading-relaxed">
-              Our vision: Create the next generation of procurement intelligence that adapts to evolving market dynamics and delivers exceptional value to organizations worldwide.
-            </p>
-            <p className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-200">
-              The future of procurement is intelligent, transparent, and results-driven.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ready to Streamline CTA Section */}
-      <section className="relative overflow-hidden py-20 fade-in" style={{clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)'}}>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900"></div>
-        <div className="relative z-10 py-16 text-center text-white">
-          <div className="glass-card inline-block px-12 py-10">
-            <h2 className="text-3xl font-semibold text-teal-300 mb-4">Ready to Transform Your Procurement?</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto text-white/80">
-              Experience the future of procurement intelligence. Our platform streamlines your decision-making process with advanced automation and transparent insights. Transform your procurement approach with {COMPANY_NAME}—where intelligence meets efficiency.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                to="/product"
-                className="btn-accent"
-                aria-label="Learn How It Works"
-              >
-                Learn How It Works
-              </Link>
-              <Link
-                to="/contact"
-                className="btn-accent"
-                aria-label="Contact Us to Learn More"
-              >
-                Contact Us to Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-        {/* Subtle bottom wave divider removed to prevent floating bar above footer */}
-      </section>
+      </footer>
     </div>
   );
 };
