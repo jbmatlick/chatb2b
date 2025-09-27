@@ -81,28 +81,13 @@ const Home = () => {
         <div className="absolute top-60 left-1/2 w-8 h-8 bg-cyan-400/20 rounded-full wave-float" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-60 right-10 w-14 h-14 bg-blue-300/20 rounded-full wave-float" style={{animationDelay: '3s'}}></div>
 
-        {/* Centered hero content with more spacing */}
+        {/* Centered hero content with minimal text */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12">
           <div className="glass-card p-8 md:p-12 lg:p-16 fade-in">
-            {/* Main headline with more bottom margin */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 sm:mb-10 leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
-                Chat with Your Procurement Agent
-              </span>
-            </h1>
-
-            {/* Subtext with more spacing */}
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-8 sm:mb-10 max-w-4xl mx-auto">
-              Revolutionize B2B software procurement through conversational AI—transparent, unbiased, and efficient. 
-              <span className="block mt-3 sm:mt-4 text-teal-300 font-semibold">
-                Secure early access to ChatB2B and transform your buying process.
-              </span>
-            </p>
-
-            {/* Coming Soon Badge with more margin */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30 rounded-full px-6 py-3 mb-10 sm:mb-12">
-              <ClockIcon className="w-5 h-5 text-teal-300" />
-              <span className="text-teal-300 font-semibold">Coming Soon</span>
+            {/* Coming Soon Badge - Now the main element */}
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-500/20 to-blue-500/20 border border-teal-400/30 rounded-full px-8 py-4 mb-12 sm:mb-16">
+              <ClockIcon className="w-6 h-6 text-teal-300" />
+              <span className="text-teal-300 font-semibold text-xl">Coming Soon</span>
             </div>
 
             {/* Email signup form */}
@@ -164,17 +149,6 @@ const Home = () => {
                 </div>
               )}
             </div>
-
-            {/* Trust indicators with more top margin */}
-            <div className="mt-16 sm:mt-20 pt-8 border-t border-white/20">
-              <p className="text-white/60 text-sm mb-4">Trusted by procurement professionals worldwide</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-                <div className="text-white/40 font-semibold">Enterprise Ready</div>
-                <div className="text-white/40 font-semibold">GDPR Compliant</div>
-                <div className="text-white/40 font-semibold">SOC 2 Certified</div>
-                <div className="text-white/40 font-semibold">24/7 Support</div>
-              </div>
-            </div>
           </div>
         </div>
       </main>
@@ -184,15 +158,6 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-white/60 text-sm">
             © 2025 ChatB2B. All rights reserved.
-          </p>
-          <p className="text-white/40 text-xs mt-2">
-            <a 
-              href="/privacy" 
-              className="hover:text-white/60 transition-colors duration-200"
-              aria-label="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
           </p>
         </div>
       </footer>
