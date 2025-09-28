@@ -69,7 +69,6 @@ async function storeSubmissionInAirtable(formData, requestId) {
       'Company': formData.company || '',
       'Message': formData.message,
       'Status': 'Waitlist Signup',
-      'Source': 'Coming Soon Page',
       'Phone Number': '' // Empty since we don't collect phone in the form
       // Note: 'Create Date' is computed automatically by Airtable
     };
