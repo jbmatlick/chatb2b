@@ -8,15 +8,15 @@ const path = require('path');
 const Airtable = require('airtable');
 
 // Company branding constants
-const COMPANY_NAME = 'RiptideB2B';
+const COMPANY_NAME = 'ChatB2B';
 const COMPANY_SLUG = COMPANY_NAME.toLowerCase().replace(/\s+/g, '-');
-const COMPANY_EMAIL = `sales@${COMPANY_SLUG}.com`;
+const COMPANY_EMAIL = `hello@${COMPANY_SLUG}.com`;
 const COMPANY_APP_URL = `https://app.${COMPANY_SLUG}.com`;
 const COMPANY_PRIVACY_EMAIL = `privacy@${COMPANY_SLUG}.com`;
 const COMPANY_EU_REP_EMAIL = `eurep@${COMPANY_SLUG}.com`;
 const COMPANY_LINKEDIN_URL = `https://linkedin.com/company/${COMPANY_SLUG}`;
 const COMPANY_TWITTER_URL = `https://twitter.com/${COMPANY_SLUG}`;
-const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/riptideb2b-logo.png`;
+const COMPANY_LOGO_URL = `https://${COMPANY_SLUG}.com/chatb2b-logo.png`;
 const COMPANY_SITE_URL = `https://${COMPANY_SLUG}.com`;
 
 // --- CONFIGURATION ---
@@ -68,7 +68,8 @@ async function storeSubmissionInAirtable(formData, requestId) {
       'Email Address': formData.email,
       'Company': formData.company || '',
       'Message': formData.message,
-      'Status': 'New',
+      'Status': 'Waitlist Signup',
+      'Source': 'Coming Soon Page',
       'Phone Number': '' // Empty since we don't collect phone in the form
       // Note: 'Create Date' is computed automatically by Airtable
     };
@@ -120,8 +121,8 @@ function storeSubmissionLocally(formData, requestId) {
       email: formData.email,
       company: formData.company || '',
       message: formData.message,
-      source: 'contact_form',
-      status: 'new'
+      source: 'coming_soon_waitlist',
+      status: 'waitlist_signup'
     };
 
     // Only write to local file in development
@@ -288,9 +289,10 @@ function thankYouEmailHtml({ name }) {
       <div class="wave"></div>
       <div class="content-card">
         <p>Hi <b>${name}</b>,</p>
-        <p>We've received your message and our team will dive in soon to help with your procurement challenges. ${COMPANY_NAME} is your AI-powered procurement intelligence platform—always working to deliver unbiased, transparent software evaluations.</p>
-        <p>Questions? Just reply to this email or explore more below.</p>
-        <a href="${COMPANY_SITE_URL}" class="cta">Explore ${COMPANY_NAME}</a>
+        <p>Thank you for joining the ChatB2B waitlist! You're now on the list to be among the first to experience our revolutionary conversational AI for B2B software procurement.</p>
+        <p>We're building something special—a ChatGPT-like interface that transforms how enterprises discover, evaluate, and procure software. You'll be notified as soon as we launch.</p>
+        <p>Questions? Just reply to this email anytime.</p>
+        <a href="${COMPANY_SITE_URL}" class="cta">Learn More About ChatB2B</a>
       </div>
       <div class="footer">
         <div style="margin-bottom:12px;">
@@ -411,7 +413,7 @@ function ownerEmailHtml({ name, email, company, message }) {
     <div class="container">
       <div class="header">
         <img src="${COMPANY_LOGO_URL}" alt="${COMPANY_NAME} Logo" class="logo" />
-        <h1>New Submission Alert</h1>
+        <h1>New Waitlist Signup</h1>
       </div>
       <div class="wave"></div>
       <div class="content-card">
@@ -495,8 +497,16 @@ module.exports = async (req, res) => {
       });
     }
 
-    // Extract and validate form fields
+    // Extract and validate form fields (waitlist signup only needs email)
     const { name, email, message, company } = req.body;
+    
+    // For waitlist signup, we only require email, but we'll use defaults for other fields
+    const waitlistData = {
+      name: name || 'Waitlist Subscriber',
+      email: email,
+      message: message || 'Joined ChatB2B waitlist from coming soon page',
+      company: company || 'Not provided'
+    };
 
     // Log form data (sanitized for privacy)
     logEvent('info', 'Form data received', {
@@ -508,12 +518,8 @@ module.exports = async (req, res) => {
       messageLength: message?.length || 0
     });
 
-    // Enhanced validation
+    // Enhanced validation (only email required for waitlist signup)
     const validationErrors = [];
-    
-    if (!name || name.trim().length < 2) {
-      validationErrors.push('Name must be at least 2 characters long');
-    }
     
     if (!email || email.trim().length === 0) {
       validationErrors.push('Email is required');
@@ -522,10 +528,6 @@ module.exports = async (req, res) => {
       if (!emailRegex.test(email.trim())) {
         validationErrors.push('Please enter a valid email address');
       }
-    }
-    
-    if (!message || message.trim().length < 10) {
-      validationErrors.push('Message must be at least 10 characters long');
     }
 
     if (validationErrors.length > 0) {
@@ -539,12 +541,12 @@ module.exports = async (req, res) => {
       });
     }
 
-    // Sanitize inputs
+    // Sanitize inputs using waitlist data
     const sanitizedData = {
-      name: name.trim(),
-      company: company?.trim() || '',
-      email: email.trim().toLowerCase(),
-      message: message.trim()
+      name: waitlistData.name.trim(),
+      company: waitlistData.company.trim(),
+      email: waitlistData.email.trim().toLowerCase(),
+      message: waitlistData.message.trim()
     };
 
     // Store the submission in Airtable
@@ -575,7 +577,7 @@ module.exports = async (req, res) => {
       ownerResult = await tranEmailApi.sendTransacEmail({
         sender: { email: COMPANY_EMAIL, name: COMPANY_NAME },
         to: [{ email: ownerEmail, name: `${COMPANY_NAME} Site Owner` }],
-        subject: `New Contact Form Submission from ${COMPANY_NAME} Site`,
+        subject: `New Waitlist Signup from ${COMPANY_NAME} Coming Soon Page`,
         htmlContent: ownerEmailHtml(sanitizedData),
         replyTo: { email: sanitizedData.email, name: sanitizedData.name },
       });
@@ -597,7 +599,7 @@ module.exports = async (req, res) => {
       thankYouResult = await tranEmailApi.sendTransacEmail({
         sender: { email: COMPANY_EMAIL, name: COMPANY_NAME },
         to: [{ email: sanitizedData.email, name: sanitizedData.name }],
-        subject: `Thanks for Reaching Out to ${COMPANY_NAME}!`,
+        subject: `Welcome to the ${COMPANY_NAME} Waitlist! 🚀`,
         htmlContent: thankYouEmailHtml({ name: sanitizedData.name }),
       });
       logEvent('info', 'Thank you email sent', { 
@@ -622,7 +624,7 @@ module.exports = async (req, res) => {
       });
       return res.status(500).json({ 
         success: false,
-        error: 'Unable to send emails. Please try again later or contact us directly.' 
+        error: 'Unable to process waitlist signup. Please try again later or contact us directly.' 
       });
     } else if (ownerError) {
       logEvent('warn', 'Owner notification failed, but thank you email sent', { 
@@ -632,9 +634,9 @@ module.exports = async (req, res) => {
       });
       return res.status(200).json({
         success: true,
-        message: 'Thank you email sent. We received your message.',
+        message: 'Welcome to the waitlist! You\'ll receive a confirmation email shortly.',
         thankYouEmailId: thankYouResult?.messageId,
-        warning: 'Notification email failed, but your message was received.'
+        warning: 'Notification email failed, but you\'re successfully added to the waitlist.'
       });
     } else if (thankYouError) {
       logEvent('warn', 'Thank you email failed, but owner notification sent', { 
@@ -644,9 +646,9 @@ module.exports = async (req, res) => {
       });
       return res.status(200).json({
         success: true,
-        message: 'We received your message and will respond soon.',
+        message: 'You\'re successfully added to the waitlist! We\'ll notify you when we launch.',
         ownerEmailId: ownerResult?.messageId,
-        warning: 'Confirmation email failed, but your message was received.'
+        warning: 'Confirmation email failed, but you\'re successfully added to the waitlist.'
       });
     } else {
       logEvent('info', 'Both emails sent successfully', { 
@@ -656,7 +658,7 @@ module.exports = async (req, res) => {
       });
       return res.status(200).json({
         success: true,
-        message: 'Emails sent successfully',
+        message: 'Welcome to the ChatB2B waitlist! Check your email for confirmation.',
         ownerEmailId: ownerResult?.messageId,
         thankYouEmailId: thankYouResult?.messageId,
       });
