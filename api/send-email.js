@@ -442,7 +442,8 @@ function ownerEmailHtml({ name, email, company, message }) {
 
 // --- MAIN HANDLER ---
 // Handles POST requests from the contact form, sends notification and auto-reply emails
-module.exports = async (req, res) => {
+// Vercel serverless function handler
+export default async function handler(req, res) {
   const requestId = Math.random().toString(36).substr(2, 9);
   
   // Set CORS headers
@@ -676,4 +677,4 @@ module.exports = async (req, res) => {
       error: 'An unexpected error occurred. Please try again later.' 
     });
   }
-};
+}
