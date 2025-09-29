@@ -23,6 +23,7 @@ yarn-error.log*
 # IDE
 .vscode/
 .idea/
+.cursor/
 
 # OS
 Thumbs.db 
