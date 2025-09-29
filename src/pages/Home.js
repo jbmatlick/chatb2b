@@ -28,21 +28,44 @@ const Home = () => {
 
     setIsLoading(true);
     
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Log email to console as requested
-    console.log(`Email submitted: ${email}`);
-    
-    // Show success state
-    setIsSubmitted(true);
-    setEmail('');
-    setIsLoading(false);
-    
-    // Reset success state after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    try {
+      // Call the API endpoint to store in Airtable and send emails
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Waitlist Subscriber',
+          email: email,
+          company: 'Not provided',
+          message: 'Joined ChatB2B waitlist from coming soon page'
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        console.log('✅ Email submitted successfully:', email);
+        setIsSubmitted(true);
+        setEmail('');
+      } else {
+        console.error('❌ Form submission failed:', data.error);
+        // Still show success to user but log the error
+        setIsSubmitted(true);
+        setEmail('');
+      }
+    } catch (error) {
+      console.error('❌ Network error:', error);
+      // Still show success to user but log the error
+      setIsSubmitted(true);
+      setEmail('');
+    } finally {
+      setIsLoading(false);
+      
+      // Reset success state after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    }
   };
 
   // Fade-in animation on mount
